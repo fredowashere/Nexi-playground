@@ -1,0 +1,74 @@
+:host {
+    --wl-cols-col-min-width: 3rem;
+    --wl-cols-col-min-height: 2.25rem;
+    --wl-cols-gap: 0.5rem;
+}
+
+.wl-cols {
+    border: 1px dashed rgba(var(--app-gray_400), 1);
+    border-radius: 5px;
+    display: grid;
+    gap: var(--wl-cols-gap);
+    padding: 0.25rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.wl-cols:not(:last-child) {
+    margin-bottom: var(--wl-cols-gap);
+}
+
+.wl-cols > * {
+    padding: 0.5rem;
+    border: 1px dashed rgba(var(--app-gray_400), 1);
+    border-radius: 5px;
+    min-height: var(--wl-cols-col-min-height);
+    position: relative;
+}
+
+.wl-cols > *::before {
+    color: rgba(var(--app-gray_400), 1);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wl-cols--1 {
+    grid-template-columns: 1fr;
+}
+
+.wl-cols--1 > *::before {
+    content: "1";
+}
+
+.wl-cols--2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.wl-cols--2 > *::before {
+    content: "2";
+}
+
+.wl-cols--3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wl-cols--3 > *::before {
+    content: "3";
+}
+
+.wl-cols--4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.wl-cols--4 > *::before {
+    content: "4";
+}
+
+.cdk-drag-preview,
+.cdk-drag-preview > *,
+.cdk-drag-preview > *::before {
+    color: rgba(var(--app-gray_900), 1);
+    border-color: rgba(var(--app-gray_900), 1);
+}

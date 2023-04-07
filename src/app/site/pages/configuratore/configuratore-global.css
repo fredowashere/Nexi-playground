@@ -11,7 +11,7 @@
 }
 
 .page-layout.page-layout--instance {
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .page-layout.page-layout--scale-on-hover:hover {

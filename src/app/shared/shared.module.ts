@@ -17,8 +17,14 @@ import { AppSortableHeader } from './directives/sortable-header';
 import { RbacAllowDirective } from './directives/role-based-access-allow';
 import { LetDirective } from './directives/ng-let';
 import { MonthpickerComponent } from './components/monthpicker/monthpicker.component';
+import { CDK_DRAG_CONFIG, DragDropModule } from '@angular/cdk/drag-drop';
 
 
+const DragConfig = {
+  dragStartThreshold: 0,
+  pointerDirectionChangeThreshold: 5,
+  zIndex: 10000
+};
 
 @NgModule({
   declarations: [
@@ -62,7 +68,9 @@ import { MonthpickerComponent } from './components/monthpicker/monthpicker.compo
     AppSortableHeader,
     RbacAllowDirective,
     LetDirective,
-    MonthpickerComponent
-  ]
+    MonthpickerComponent,
+    DragDropModule
+  ],
+  providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }]
 })
 export class SharedModule { }

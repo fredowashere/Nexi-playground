@@ -11,6 +11,7 @@ import { TemplateAComponent } from './pages/configuratore/page-layouts/template-
 import { TemplateBComponent } from './pages/configuratore/page-layouts/template-b/template-b.component';
 import { TemplateCComponent } from './pages/configuratore/page-layouts/template-c/template-c.component';
 import { TemplateDComponent } from './pages/configuratore/page-layouts/template-d/template-d.component';
+import { WLayoutsComponent } from './pages/configuratore/widgets/w-layouts/w-layouts.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
     TemplateAComponent,
     TemplateBComponent,
     TemplateCComponent,
-    TemplateDComponent
+    TemplateDComponent,
+    WLayoutsComponent
   ],
   imports: [
     CommonModule,
