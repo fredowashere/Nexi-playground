@@ -4,8 +4,8 @@
     grid-template-rows: min-content 1fr;
     grid-template-areas:
         "a a a"
-        "b c d"
-        "b e d";
+        "c c c"
+        "e e e";
     gap: 1rem;
     min-height: 100vh;
     padding: 3rem;
@@ -15,7 +15,7 @@
     border: 1px solid rgba(var(--app-gray_300), 1);
     border-radius: 10px;
     min-height: 10vh;
-    padding: 0.5rem;
+    padding: 1rem;
     padding-top: 3rem;
     position: relative;
 }
@@ -90,7 +90,7 @@
 .lifecycle-hooks {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .lifecycle-hooks > * {
@@ -98,13 +98,14 @@
     border-radius: 5px;
     min-height: 5vh;
     padding: 1rem;
-    padding-top: 0.25rem;
+    position: relative;
 }
 
 .lifecycle-hooks > *::before {
     color: rgba(var(--app-gray_400), 1);
-    display: block;
-    text-align: center;
+    left: 0.5rem;
+    position: absolute;
+    top: 0.25rem;
 }
 
 .lifecycle-hooks > *:nth-child(1)::before {

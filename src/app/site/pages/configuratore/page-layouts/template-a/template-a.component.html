@@ -1,5 +1,74 @@
 <div class="page-layout page-layout--a page-layout--instance">
-    <div cdkDropList></div>
-    <div cdkDropList></div>
-    <div cdkDropList></div>
+
+    <div>
+
+        <div class="text-center mb-3">
+            <div
+                class="btn btn-rnd btn-outline-primary shadow"
+                (click)="addConfEl(confService.header)"
+            >
+                <i class="bi bi-plus-lg"></i>
+            </div>
+        </div>
+
+        <div
+            class="d-grid gap-3"
+            cdkDropList
+            (cdkDropListDropped)="drop($event, confService.header)"
+        >
+            <app-conf-el-shell
+                cdkDrag
+                *ngFor="let confEl of confService.header"
+                [confEl]="confEl"
+            ></app-conf-el-shell>
+        </div>
+    </div>
+
+    <div>
+
+        <div class="text-center mb-3">
+            <div
+                class="btn btn-rnd btn-outline-primary shadow"
+                (click)="addConfEl(confService.main)"
+            >
+                <i class="bi bi-plus-lg"></i>
+            </div>
+        </div>
+
+        <div
+            class="d-grid gap-3"
+            cdkDropList
+            (cdkDropListDropped)="drop($event, confService.main)"
+        >
+            <app-conf-el-shell
+                cdkDrag
+                *ngFor="let confEl of confService.main"
+                [confEl]="confEl"
+            ></app-conf-el-shell>
+        </div>
+    </div>
+
+    <div>
+
+        <div class="text-center mb-3">
+            <div
+                class="btn btn-rnd btn-outline-primary shadow"
+                (click)="addConfEl(confService.footer)"
+            >
+                <i class="bi bi-plus-lg"></i>
+            </div>
+        </div>
+
+        <div
+            class="d-grid gap-3"
+            cdkDropList
+            (cdkDropListDropped)="drop($event, confService.footer)"
+        >
+            <app-conf-el-shell
+                cdkDrag
+                *ngFor="let confEl of confService.footer"
+                [confEl]="confEl"
+            ></app-conf-el-shell>
+        </div>
+    </div>
 </div>

@@ -11,7 +11,10 @@ import { TemplateAComponent } from './pages/configuratore/page-layouts/template-
 import { TemplateBComponent } from './pages/configuratore/page-layouts/template-b/template-b.component';
 import { TemplateCComponent } from './pages/configuratore/page-layouts/template-c/template-c.component';
 import { TemplateDComponent } from './pages/configuratore/page-layouts/template-d/template-d.component';
-import { WLayoutsComponent } from './pages/configuratore/widgets/w-layouts/w-layouts.component';
+import { ConfElShellComponent, DclDirective } from './pages/configuratore/conf-el-shell/conf-el-shell.component';
+import { LayoutComponent } from './pages/configuratore/layouts/layout/layout.component';
+import { AddConfElDialogComponent } from './pages/configuratore/dialogs/add-conf-el-dialog/add-conf-el-dialog.component';
+import { RemoveConfElDialogComponent } from './pages/configuratore/dialogs/remove-conf-el-dialog/remove-conf-el-dialog.component';
 
 const routes: Routes = [
   {
@@ -36,7 +39,11 @@ const routes: Routes = [
     TemplateBComponent,
     TemplateCComponent,
     TemplateDComponent,
-    WLayoutsComponent
+    LayoutComponent,
+    DclDirective,
+    ConfElShellComponent,
+    AddConfElDialogComponent,
+    RemoveConfElDialogComponent,
   ],
   imports: [
     CommonModule,

@@ -30,7 +30,8 @@
               "./node_modules/highlight.js/styles/magula.css",
               "src/assets/css/demos.css",
               "src/styles.css",
-              "src/app/site/pages/configuratore/configuratore-global.css"
+              "src/app/site/pages/configuratore/configuratore-global.css",
+              "src/app/site/pages/configuratore/layouts/layout-global.css"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"

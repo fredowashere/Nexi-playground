@@ -1,0 +1,61 @@
+<div class="modal-header">
+
+    <h4 class="modal-title" id="modal-title">
+        Aggiungi configurazione
+    </h4>
+
+    <button
+        type="button"
+        class="btn-close" 
+        (click)="activeModal.dismiss('Cross click')"
+    ></button>
+</div>
+
+<div class="modal-body">
+
+    <div
+        *ngIf="supportedConfigs.includes(ConfElType.Layout)"
+        class="d-grid gap-3"
+    >
+
+        <div class="card shadow">
+            <div class="card-body">
+                <app-layout
+                    [confEl]="oneColLayout"
+                    [isShowcase]="true"
+                    (click)="select(oneColLayout)"
+                ></app-layout>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <app-layout
+                    [confEl]="twoColLayout"
+                    [isShowcase]="true"
+                    (click)="select(twoColLayout)"
+                ></app-layout>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <app-layout
+                    [confEl]="threeColLayout"
+                    [isShowcase]="true"
+                    (click)="select(threeColLayout)"
+                ></app-layout>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-body">
+                <app-layout
+                    [confEl]="fourColLayout"
+                    [isShowcase]="true"
+                    (click)="select(fourColLayout)"
+                ></app-layout>
+            </div>
+        </div>
+    </div>
+</div>

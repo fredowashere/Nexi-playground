@@ -7,11 +7,10 @@
 
 .page-layout {
     display: grid;
-    overflow: hidden;
 }
 
 .page-layout.page-layout--instance {
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .page-layout.page-layout--scale-on-hover:hover {
@@ -22,25 +21,24 @@
 .page-layout > * {
     border: 1px solid rgba(var(--app-gray_300), 1);
     border-radius: 5px;
-    padding: 0.125rem;
     min-width: 3rem;
     min-height: 2rem;
+    padding: 0.125rem;
     position: relative;
 }
 
 .page-layout.page-layout--instance > * {
     border: 1px dashed rgba(var(--app-gray_300), 1);
     padding: 1rem;
-    min-width: 250px;
+    min-width: 375px;
     min-height: 10vh;
 }
 
 .page-layout > *::before {
     color: rgba(var(--app-gray_400), 1);
-    left: 50%;
+    left: 0.5rem;
     position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 0.25rem;
 }
 
 .page-layout.page-layout--a {

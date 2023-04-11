@@ -166,3 +166,11 @@ th[sortable].desc::before {
   flex: 1 1 clamp(var(--flexgrid-col-min-width), 20%, 20%);
   padding: calc(var(--flexgrid-gap) / 2);
 }
+
+.btn-rnd {
+  aspect-ratio: 1/1;
+  display: inline-grid;
+  place-items: center;
+  width: min-content;
+  border-radius: 50%;
+}

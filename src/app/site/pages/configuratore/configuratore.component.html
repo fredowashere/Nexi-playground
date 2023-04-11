@@ -1,5 +1,5 @@
 
-<div class="conf" cdkDropListGroup>
+<div class="conf">
 
     <div class="conf__header">
 
@@ -45,9 +45,7 @@
         </div>
     </div>
 
-    <div class="conf__side-left">
-        <app-w-layouts></app-w-layouts>
-    </div>
+    <!-- <div class="conf__side-left"></div> -->
 
     <div class="conf__main">
         <ng-container [ngSwitch]="selectedPageLayout">
@@ -76,14 +74,26 @@
         </ng-container>
     </div>
 
-    <div class="conf__main-footer">
+    <div class="conf__main-footer" *ngIf="selectedPageLayout">
         <div class="lifecycle-hooks">
-            <div class="hook-init"></div>
-            <div class="hook-destroy"></div>
+
+            <div class="hook-init">
+                <div class="text-center mb-3">
+                    <div class="btn btn-rnd btn-outline-primary shadow">
+                        <i class="bi bi-plus-lg"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hook-destroy">
+                <div class="text-center mb-3">
+                    <div class="btn btn-rnd btn-outline-primary shadow">
+                        <i class="bi bi-plus-lg"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="conf__side-right">
-        
-    </div>
+    <!-- <div class="conf__side-right"></div> -->
 </div>

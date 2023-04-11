@@ -17,4 +17,5 @@ export class ConfiguratoreComponent {
   PageLayout = PageLayout;
 
   selectedPageLayout?: PageLayout;
+
 }
