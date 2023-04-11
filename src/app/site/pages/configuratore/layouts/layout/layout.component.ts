@@ -34,7 +34,7 @@ export class LayoutComponent {
 
   async addConfEl(target: ConfEl[]) {
 
-		const modalRef = this.modalService.open(AddConfElDialogComponent, { size: 'xl' });
+		const modalRef = this.modalService.open(AddConfElDialogComponent, { size: 'xl', centered: true });
 		modalRef.componentInstance.target = target;
     modalRef.componentInstance.supportedConfigs = [
       ConfElType.Layout

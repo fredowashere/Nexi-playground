@@ -2,21 +2,21 @@
     *ngIf="confEl.settings.numOfCols == 1"
     class="layout-cols layout-cols--1"
 >
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet1 || [])"
+                (click)="addConfEl(confEl.outlet1)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet1 || []"
+            [cdkDropListData]="confEl.outlet1"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -34,21 +34,21 @@
     class="layout-cols layout-cols--2"
 >
     
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet1 || [])"
+                (click)="addConfEl(confEl.outlet1)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet1 || []"
+            [cdkDropListData]="confEl.outlet1"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -59,21 +59,21 @@
         </div>
     </div>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet2 || [])"
+                (click)="addConfEl(confEl.outlet2)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet2 || []"
+            [cdkDropListData]="confEl.outlet2"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -85,23 +85,27 @@
     </div>
 </div>
 
-<div *ngIf="confEl.settings.numOfCols == 3" class="layout-cols layout-cols--3">
+<div
+    *ngIf="confEl.settings.numOfCols == 3"
+    cdkDropListGroup
+    class="layout-cols layout-cols--3"
+>
     
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet1 || [])"
+                (click)="addConfEl(confEl.outlet1)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet1 || []"
+            [cdkDropListData]="confEl.outlet1"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -112,21 +116,21 @@
         </div>
     </div>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet2 || [])"
+                (click)="addConfEl(confEl.outlet2)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet2 || []"
+            [cdkDropListData]="confEl.outlet2"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -137,21 +141,21 @@
         </div>
     </div>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet3 || [])"
+                (click)="addConfEl(confEl.outlet3)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet3 || []"
+            [cdkDropListData]="confEl.outlet3"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -163,23 +167,27 @@
     </div>
 </div>
 
-<div *ngIf="confEl.settings.numOfCols == 4" class="layout-cols layout-cols--4">
+<div
+    *ngIf="confEl.settings.numOfCols == 4"
+    cdkDropListGroup
+    class="layout-cols layout-cols--4"
+>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet1 || [])"
+                (click)="addConfEl(confEl.outlet1)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet1 || []"
+            [cdkDropListData]="confEl.outlet1"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -190,21 +198,21 @@
         </div>
     </div>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet2 || [])"
+                (click)="addConfEl(confEl.outlet2)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet2 || []"
+            [cdkDropListData]="confEl.outlet2"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -215,21 +223,21 @@
         </div>
     </div>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet3 || [])"
+                (click)="addConfEl(confEl.outlet3)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet3 || []"
+            [cdkDropListData]="confEl.outlet3"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell
@@ -240,21 +248,21 @@
         </div>
     </div>
 
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-2">
 
         <div *ngIf="!isShowcase" class="text-center">
             <div
                 class="btn btn-sm btn-rnd add-new btn-outline-primary shadow"
-                (click)="addConfEl(confEl.outlet4 || [])"
+                (click)="addConfEl(confEl.outlet4)"
             >
                 <i class="bi bi-plus-lg"></i>
             </div>
         </div>
 
         <div
-            class="d-grid gap-3"
+            class="d-grid gap-2"
             cdkDropList
-            [cdkDropListData]="confEl.outlet4 || []"
+            [cdkDropListData]="confEl.outlet4"
             (cdkDropListDropped)="drop($event)"
         >
             <app-conf-el-shell

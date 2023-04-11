@@ -1,5 +1,5 @@
 import { Component, Directive, Input, ViewChild, ViewContainerRef } from '@angular/core';
-import { ConfEl } from '../services/configuratore.service';
+import { ConfEl, ConfiguratoreService } from '../services/configuratore.service';
 
 @Directive({
   selector: '[dcl]',
@@ -18,6 +18,12 @@ export class ConfElShellComponent {
   @ViewChild(DclDirective, { static: true }) dcl!: DclDirective;
   @Input("confEl") confEl!: ConfEl;
 
+  constructor(
+    private confService: ConfiguratoreService
+  ) {
+
+  }
+
   ngOnInit() {
     this.loadComponent();
   }
@@ -25,5 +31,9 @@ export class ConfElShellComponent {
   loadComponent() {
     const componentRef = this.dcl.viewContainerRef.createComponent<any>(this.confEl.component);
     componentRef.instance.confEl = this.confEl;
+  }
+
+  removeConf() {
+    this.confService.removeConfEl(this.confEl.id);
   }
 }
