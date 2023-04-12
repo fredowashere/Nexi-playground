@@ -76,6 +76,13 @@ export class ConfiguratoreService {
       list = this.footer;
     }
 
+    if (this.findConfIndex(id, this.init) > -1) {
+      list = this.init;
+    }
+    if (this.findConfIndex(id, this.destroy) > -1) {
+      list = this.destroy;
+    }
+
     // Found in root -> return list
     if (list) return list;
 
@@ -85,7 +92,9 @@ export class ConfiguratoreService {
       ...this.sideLeft,
       ...this.main,
       ...this.sideRight,
-      ...this.footer
+      ...this.footer,
+      ...this.init,
+      ...this.destroy
     ];
 
     while (q.length && safe--) {
