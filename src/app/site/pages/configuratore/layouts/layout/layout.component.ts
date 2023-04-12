@@ -45,6 +45,5 @@ export class LayoutComponent {
     ];
 
 		const result = await modalRef.result;
-		console.log("Choice", result);
 	}
 }

@@ -25,6 +25,8 @@ import { HeadingSettingsDialogComponent } from './pages/configuratore/widgets/he
 import { ParagraphWrapComponent } from './pages/configuratore/widgets/paragraph-wrap/paragraph-wrap.component';
 import { ParagraphComponent } from './pages/configuratore/widgets/paragraph/paragraph.component';
 import { ParagraphSettingsDialogComponent } from './pages/configuratore/widgets/paragraph-settings-dialog/paragraph-settings-dialog.component';
+import { CommandWrapComponent } from './pages/configuratore/commands/command-wrap/command-wrap.component';
+import { CommandComponent } from './pages/configuratore/commands/command/command.component';
 
 const routes: Routes = [
   {
@@ -63,7 +65,9 @@ const routes: Routes = [
     HeadingSettingsDialogComponent,
     ParagraphComponent,
     ParagraphWrapComponent,
-    ParagraphSettingsDialogComponent
+    ParagraphSettingsDialogComponent,
+    CommandWrapComponent,
+    CommandComponent
   ],
   imports: [
     CommonModule,

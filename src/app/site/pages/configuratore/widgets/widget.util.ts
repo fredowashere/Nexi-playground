@@ -23,6 +23,10 @@ export const WIDGETS = [
     createParagraph({ text: "Paragrafo di testo" })
 ];
 
+export const BUTTONS = WIDGETS.filter(w => w.name === WidgetType.Button);
+export const HEADINGS = WIDGETS.filter(w => w.name === WidgetType.Heading);
+export const PARAGRAPHS = WIDGETS.filter(w => w.name === WidgetType.Paragraph);
+
 export function createButton(opt: { text: string, size?: "sm" | "md" | "lg" }): ConfEl {
     return {
         id: guid(),

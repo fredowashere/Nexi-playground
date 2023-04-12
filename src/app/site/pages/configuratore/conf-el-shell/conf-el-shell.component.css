@@ -3,3 +3,15 @@
     display: flex;
     gap: 0.5rem;
 }
+
+.is-layout {
+    background: #d2e9cf;
+}
+
+.is-widget {
+    background: #d5e0ea;
+}
+
+.is-command {
+    background: #ebd0d0;
+}

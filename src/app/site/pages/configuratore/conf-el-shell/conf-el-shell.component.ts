@@ -1,5 +1,5 @@
 import { Component, Directive, Input, ViewChild, ViewContainerRef } from '@angular/core';
-import { ConfEl, ConfiguratoreService } from '../services/configuratore.service';
+import { ConfEl, ConfElType, ConfiguratoreService } from '../services/configuratore.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Directive({
@@ -18,6 +18,8 @@ export class ConfElShellComponent {
 
   @ViewChild(DclDirective, { static: true }) dcl!: DclDirective;
   @Input("confEl") confEl!: ConfEl;
+
+  ConfElType = ConfElType;
 
   constructor(
     private confService: ConfiguratoreService,

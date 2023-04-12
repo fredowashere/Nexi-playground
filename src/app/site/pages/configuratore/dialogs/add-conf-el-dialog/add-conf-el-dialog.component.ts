@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfEl, ConfElType } from '../../services/configuratore.service';
 import { LAYOUTS, createLayout } from '../../layouts/layout.util';
-import { WIDGETS, WidgetType, createButton, createHeading, createParagraph } from '../../widgets/widget.util';
+import { BUTTONS, HEADINGS, PARAGRAPHS, WIDGETS, WidgetType, createButton, createHeading, createParagraph } from '../../widgets/widget.util';
+import { API_COMMANDS, CASH_COMMANDS, CommandType, JOURNAL_COMMANDS, LOGGER_COMMANDS, RPC_COMMANDS, SESSIONS_COMMANDS, createAPICommand, createCashCommand, createJournalCommand, createLoggerCommand, createRPCCommand, createSessionCommand } from '../../commands/command.util';
 
 @Component({
   selector: 'app-add-conf-el-dialog',
@@ -17,45 +18,74 @@ export class AddConfElDialogComponent {
   ConfElType = ConfElType;
 
   LAYOUTS = LAYOUTS;
-  WIDGETS = WIDGETS;
 
-  buttons: ConfEl[] = [];
-  headings: ConfEl[] = [];
-  paragraphs: ConfEl[] = [];
+  BUTTONS = BUTTONS;
+  HEADINGS = HEADINGS;
+  PARAGRAPHS = PARAGRAPHS;
+
+  SESSIONS_COMMANDS = SESSIONS_COMMANDS;
+  JOURNAL_COMMANDS = JOURNAL_COMMANDS;
+  LOGGER_COMMANDS = LOGGER_COMMANDS;
+  RPC_COMMANDS = RPC_COMMANDS;
+  CASH_COMMANDS = CASH_COMMANDS;
+  API_COMMANDS = API_COMMANDS;
 
   constructor(
     public activeModal: NgbActiveModal
-  ) {
-
-    this.buttons = WIDGETS.filter(w => w.name === WidgetType.Button);
-    this.headings = WIDGETS.filter(w => w.name === WidgetType.Heading);
-    this.paragraphs = WIDGETS.filter(w => w.name === WidgetType.Paragraph);
-  }
+  ) { }
 
   select(confEl: ConfEl) {
 
+    let elToAdd;
+
     if (confEl.type === ConfElType.Layout) {
-      this.target.push(
-        createLayout({ numOfCols: confEl.settings.numOfCols })
-      );
+      elToAdd = createLayout({ numOfCols: confEl.settings.numOfCols });
     }
 
-    if (confEl.type === ConfElType.Widget && confEl.name === WidgetType.Button) {
-      this.target.push(
-        createButton({ text: confEl.settings.text, size: confEl.settings.size })
-      );
+    if (confEl.type === ConfElType.Widget) {
+
+      if (confEl.name === WidgetType.Button) {
+        elToAdd = createButton({ text: confEl.settings.text, size: confEl.settings.size });
+      }
+
+      if (confEl.name === WidgetType.Heading) {
+        elToAdd = createHeading({ text: confEl.settings.text, size: confEl.settings.size });
+      }
+
+      if (confEl.name === WidgetType.Paragraph) {
+        elToAdd = createParagraph({ text: confEl.settings.text });
+      }
     }
 
-    if (confEl.type === ConfElType.Widget && confEl.name === WidgetType.Heading) {
-      this.target.push(
-        createHeading({ text: confEl.settings.text, size: confEl.settings.size })
-      );
+    if (confEl.type === ConfElType.Command) {
+
+      if (confEl.name === CommandType.Session) {
+        elToAdd = createSessionCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.Journal) {
+        elToAdd = createJournalCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.Logger) {
+        elToAdd = createLoggerCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.RPC) {
+        elToAdd = createRPCCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.Cash) {
+        elToAdd = createCashCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.API) {
+        elToAdd = createAPICommand({ ...confEl.settings });
+      }
     }
 
-    if (confEl.type === ConfElType.Widget && confEl.name === WidgetType.Paragraph) {
-      this.target.push(
-        createParagraph({ text: confEl.settings.text })
-      );
+    if (elToAdd) {
+      this.target.push(elToAdd);
     }
     
     this.activeModal.close(confEl);

@@ -33,7 +33,6 @@
         </div>
     </ng-container>
 
-
     <ng-container *ngIf="supportedConfigs.includes(ConfElType.Widget)">
 
         <h3 class="my-4">Widgets</h3>
@@ -42,13 +41,13 @@
     
         <div class="d-grid gap-2">
             <div
-                *ngFor="let l of buttons"
+                *ngFor="let w of BUTTONS"
                 class="card shadow"
-                (click)="select(l)"
+                (click)="select(w)"
             >
                 <div class="card-body p-2">
                     <app-button
-                        [confEl]="l"
+                        [confEl]="w"
                         [isShowcase]="true"
                     ></app-button>
                 </div>
@@ -59,13 +58,13 @@
     
         <div class="d-grid gap-2">
             <div
-                *ngFor="let l of headings"
+                *ngFor="let w of HEADINGS"
                 class="card shadow"
-                (click)="select(l)"
+                (click)="select(w)"
             >
                 <div class="card-body p-2">
                     <app-heading
-                        [confEl]="l"
+                        [confEl]="w"
                         [isShowcase]="true"
                     ></app-heading>
                 </div>
@@ -76,15 +75,122 @@
     
         <div class="d-grid gap-2">
             <div
-                *ngFor="let l of paragraphs"
+                *ngFor="let w of PARAGRAPHS"
                 class="card shadow"
-                (click)="select(l)"
+                (click)="select(w)"
             >
                 <div class="card-body p-2">
                     <app-paragraph
-                        [confEl]="l"
+                        [confEl]="w"
                         [isShowcase]="true"
                     ></app-paragraph>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="supportedConfigs.includes(ConfElType.Command)">
+
+        <h3 class="mb-4">Comandi</h3>
+    
+        <h5 class="mb-3">Session</h5>
+    
+        <div class="d-flex flex-wrap gap-2">
+            <div
+                *ngFor="let c of SESSIONS_COMMANDS"
+                class="card shadow"
+                (click)="select(c)"
+            >
+                <div class="card-body p-2">
+                    <app-command
+                        [confEl]="c"
+                        [isShowcase]="true"
+                    ></app-command>
+                </div>
+            </div>
+        </div>
+        
+        <h5 class="my-3">Journal</h5>
+    
+        <div class="d-flex flex-wrap gap-2">
+            <div
+                *ngFor="let c of JOURNAL_COMMANDS"
+                class="card shadow"
+                (click)="select(c)"
+            >
+                <div class="card-body p-2">
+                    <app-command
+                        [confEl]="c"
+                        [isShowcase]="true"
+                    ></app-command>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="my-3">Logger</h5>
+    
+        <div class="d-flex flex-wrap gap-2">
+            <div
+                *ngFor="let c of LOGGER_COMMANDS"
+                class="card shadow"
+                (click)="select(c)"
+            >
+                <div class="card-body p-2">
+                    <app-command
+                        [confEl]="c"
+                        [isShowcase]="true"
+                    ></app-command>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="my-3">RPC</h5>
+    
+        <div class="d-flex flex-wrap gap-2">
+            <div
+                *ngFor="let c of RPC_COMMANDS"
+                class="card shadow"
+                (click)="select(c)"
+            >
+                <div class="card-body p-2">
+                    <app-command
+                        [confEl]="c"
+                        [isShowcase]="true"
+                    ></app-command>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="my-3">Cash</h5>
+    
+        <div class="d-flex flex-wrap gap-2">
+            <div
+                *ngFor="let c of CASH_COMMANDS"
+                class="card shadow"
+                (click)="select(c)"
+            >
+                <div class="card-body p-2">
+                    <app-command
+                        [confEl]="c"
+                        [isShowcase]="true"
+                    ></app-command>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="my-3">API</h5>
+    
+        <div class="d-flex flex-wrap gap-2">
+            <div
+                *ngFor="let c of API_COMMANDS"
+                class="card shadow"
+                (click)="select(c)"
+            >
+                <div class="card-body p-2">
+                    <app-command
+                        [confEl]="c"
+                        [isShowcase]="true"
+                    ></app-command>
                 </div>
             </div>
         </div>

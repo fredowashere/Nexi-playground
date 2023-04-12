@@ -1,10 +1,16 @@
 <div class="card shadow">
 
-    <div class="card-header conf-el__toolbar">
+    <div
+        class="card-header conf-el__toolbar"
+        [class.is-layout]="confEl.type === ConfElType.Layout"
+        [class.is-widget]="confEl.type === ConfElType.Widget"
+        [class.is-command]="confEl.type === ConfElType.Command"
+    >
 
         <div class="me-auto">{{ confEl.name }}</div>
 
         <div
+            *ngIf="confEl.settingsDialog"
             class="btn btn-sm btn-rnd btn-warning shadow"
             (click)="openConfSettings()"
         >
