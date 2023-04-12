@@ -36,11 +36,12 @@ export class LayoutComponent {
 
 		const modalRef = this.modalService.open(
       AddConfElDialogComponent,
-      { size: 'xl', centered: true }
+      { size: 'xl', centered: true, scrollable: true }
     );
 		modalRef.componentInstance.target = target;
     modalRef.componentInstance.supportedConfigs = [
-      ConfElType.Layout
+      ConfElType.Layout,
+      ConfElType.Widget
     ];
 
 		const result = await modalRef.result;

@@ -1,0 +1,3 @@
+:host ::ng-deep .layout-cols > * {
+    min-height: 2.25rem;
+}

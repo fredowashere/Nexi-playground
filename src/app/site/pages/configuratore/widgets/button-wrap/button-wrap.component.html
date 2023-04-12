@@ -1,0 +1,19 @@
+
+<div class="mb-3">
+    <app-button [confEl]="confEl"></app-button>
+</div>
+
+<div class="pipeline">
+
+    <div class="text-center">
+        <div class="btn btn-sm btn-rnd add-new btn-outline-primary shadow">
+            <i class="bi bi-plus-lg"></i>
+        </div>
+    </div>
+
+    <app-conf-el-shell
+        cdkDrag
+        *ngFor="let confEl of confEl.outlet1"
+        [confEl]="confEl"
+    ></app-conf-el-shell>
+</div>

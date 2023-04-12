@@ -1,7 +1,6 @@
 import { Component, Directive, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { ConfEl, ConfiguratoreService } from '../services/configuratore.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { LayoutSettingsDialogComponent } from '../layouts/layout-settings-dialog/layout-settings-dialog.component';
 
 @Directive({
   selector: '[dcl]',
@@ -23,9 +22,7 @@ export class ConfElShellComponent {
   constructor(
     private confService: ConfiguratoreService,
     private modalService: NgbModal
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     this.loadComponent();
@@ -40,7 +37,7 @@ export class ConfElShellComponent {
 
     const modalRef = this.modalService.open(
       this.confEl.settingsDialog,
-      { centered: true }
+      { centered: true, scrollable: true }
     );
 		modalRef.componentInstance.target = this.confEl;
 

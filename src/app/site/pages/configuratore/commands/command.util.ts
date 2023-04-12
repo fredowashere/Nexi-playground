@@ -1,1 +1,1 @@
-export const COMMAND = {};
+export const COMMANDS = [];

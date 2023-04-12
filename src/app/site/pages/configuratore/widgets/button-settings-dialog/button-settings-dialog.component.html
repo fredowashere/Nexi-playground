@@ -12,9 +12,18 @@
 </div>
 
 <div class="modal-body">
+
     <div class="mb-3">
-        <label for="num-of-cols" class="form-label">Numero di colonne</label>
-        <input id="num-of-cols" type="number" class="form-control" [(ngModel)]="target.settings.numOfCols">
+        <label for="text-of-btn" class="form-label">Testo pulsante</label>
+        <input id="text-of-btn" type="texgt" class="form-control" [(ngModel)]="target.settings.text">
+    </div>
+
+    <div class="mb-3">
+        <select class="form-select" [(ngModel)]="target.settings.size">
+            <option value="sm">Piccolo</option>
+            <option value="md">Medio</option>
+            <option value="lg">Grande</option>
+        </select>
     </div>
 </div>
 

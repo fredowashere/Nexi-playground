@@ -1,10 +1,11 @@
 :root {
     --layout-cols-col-min-width: 3rem;
-    --layout-cols-col-min-height: 2.25rem;
+    --layout-cols-col-min-height: 5rem;
     --layout-cols-gap: 0.5rem;
 }
 
 .layout-cols {
+    align-items: start;
     display: grid;
     gap: var(--layout-cols-gap);
     position: relative;

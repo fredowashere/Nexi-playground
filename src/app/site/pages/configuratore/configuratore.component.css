@@ -4,8 +4,8 @@
     grid-template-rows: min-content 1fr;
     grid-template-areas:
         "a a a"
-        "b c d"
-        "b e d";
+        "c c c"
+        "e e e";
     gap: 1rem;
     min-height: 100vh;
     padding: 3rem;

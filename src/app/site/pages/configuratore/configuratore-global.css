@@ -158,3 +158,20 @@
 .page-layout.page-layout--d > *:nth-child(5)::before {
     content: "Footer";
 }
+
+.pipeline {
+    border: 1px dashed rgba(var(--app-gray_300), 1);
+    border-radius: 5px;
+    min-height: 10vh;
+    min-width: 375px;
+    padding: 1rem;
+    position: relative;
+}
+
+.pipeline::before {
+    content: "Comandi";
+    color: rgba(var(--app-gray_400), 1);
+    left: 0.5rem;
+    position: absolute;
+    top: 0.25rem;
+}

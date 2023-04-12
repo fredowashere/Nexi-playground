@@ -24,7 +24,7 @@ export class TemplateAComponent {
 
 		const modalRef = this.modalService.open(
       AddConfElDialogComponent,
-      { size: 'xl', centered: true }
+      { size: 'xl', centered: true, scrollable: true }
     );
 		modalRef.componentInstance.target = target;
     modalRef.componentInstance.supportedConfigs = [
@@ -32,6 +32,5 @@ export class TemplateAComponent {
     ];
 
 		const result = await modalRef.result;
-		console.log("Choice", result);
 	}
 }

@@ -16,6 +16,15 @@ import { LayoutComponent } from './pages/configuratore/layouts/layout/layout.com
 import { AddConfElDialogComponent } from './pages/configuratore/dialogs/add-conf-el-dialog/add-conf-el-dialog.component';
 import { RemoveConfElDialogComponent } from './pages/configuratore/dialogs/remove-conf-el-dialog/remove-conf-el-dialog.component';
 import { LayoutSettingsDialogComponent } from './pages/configuratore/layouts/layout-settings-dialog/layout-settings-dialog.component';
+import { ButtonComponent } from './pages/configuratore/widgets/button/button.component';
+import { ButtonWrapComponent } from './pages/configuratore/widgets/button-wrap/button-wrap.component';
+import { ButtonSettingsDialogComponent } from './pages/configuratore/widgets/button-settings-dialog/button-settings-dialog.component';
+import { HeadingWrapComponent } from './pages/configuratore/widgets/heading-wrap/heading-wrap.component';
+import { HeadingComponent } from './pages/configuratore/widgets/heading/heading.component';
+import { HeadingSettingsDialogComponent } from './pages/configuratore/widgets/heading-settings-dialog/heading-settings-dialog.component';
+import { ParagraphWrapComponent } from './pages/configuratore/widgets/paragraph-wrap/paragraph-wrap.component';
+import { ParagraphComponent } from './pages/configuratore/widgets/paragraph/paragraph.component';
+import { ParagraphSettingsDialogComponent } from './pages/configuratore/widgets/paragraph-settings-dialog/paragraph-settings-dialog.component';
 
 const routes: Routes = [
   {
@@ -40,12 +49,21 @@ const routes: Routes = [
     TemplateBComponent,
     TemplateCComponent,
     TemplateDComponent,
-    LayoutComponent,
     DclDirective,
     ConfElShellComponent,
     AddConfElDialogComponent,
     RemoveConfElDialogComponent,
-    LayoutSettingsDialogComponent
+    LayoutComponent,
+    LayoutSettingsDialogComponent,
+    ButtonComponent,
+    ButtonWrapComponent,
+    ButtonSettingsDialogComponent,
+    HeadingComponent,
+    HeadingWrapComponent,
+    HeadingSettingsDialogComponent,
+    ParagraphComponent,
+    ParagraphWrapComponent,
+    ParagraphSettingsDialogComponent
   ],
   imports: [
     CommonModule,

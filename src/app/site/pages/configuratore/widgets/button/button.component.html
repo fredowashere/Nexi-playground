@@ -1,0 +1,8 @@
+<button
+    class="btn btn-primary shadow"
+    [class.btn-sm]="confEl.settings.size === 'sm'"
+    [class.btn-lg]="confEl.settings.size === 'lg'"
+    [class.showcase]="isShowcase"
+>
+    {{ confEl.settings.text }}
+</button>
