@@ -14,13 +14,9 @@ export enum WidgetType {
 }
 
 export const WIDGETS = [
-    createButton({ text: "Pulsante piccolo", size: "sm" }),
-    createButton({ text: "Pulsante medio" }),
-    createButton({ text: "Pulsante grande", size: "lg" }),
-    createHeading({ text: "Titolo piccolo", size: "sm" }),
-    createHeading({ text: "Titolo medio" }),
-    createHeading({ text: "Titolo grande", size: "lg" }),
-    createParagraph({ text: "Paragrafo di testo" })
+    createButton({ text: "Esempio di pulsante" }),
+    createHeading({ text: "Esempio di titolo" }),
+    createParagraph({ text: "Esempio di paragrafo" })
 ];
 
 export const BUTTONS = WIDGETS.filter(w => w.name === WidgetType.Button);

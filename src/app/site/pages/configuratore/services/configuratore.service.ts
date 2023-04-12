@@ -11,7 +11,7 @@ export enum ConfElType {
 export interface ConfEl {
   id: string;
   type: ConfElType;
-  name: string;
+  name: any;
   settings: any;
   settingsDialog?: any;
   component: any;
@@ -31,6 +31,9 @@ export class ConfiguratoreService {
   main: ConfEl[] = [];
   sideRight: ConfEl[] = [];
   footer: ConfEl[] = [];
+
+  init: ConfEl[] = [];
+  destroy: ConfEl[] = [];
 
   constructor(
     private modalService: NgbModal

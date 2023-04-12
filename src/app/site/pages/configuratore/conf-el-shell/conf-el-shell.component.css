@@ -1,17 +1,20 @@
-.conf-el__toolbar {
-    align-items: center;
+.conf-shell {
+    border: 1px solid rgba(var(--app-gray_400), 1);
+    border-radius: 5px;
+    min-width: 275px;
+    padding: 1rem;
+    position: relative;
+}
+
+.border--dashed {
+    border-style: dashed;
+}
+
+.conf-shell__tools {
     display: flex;
     gap: 0.5rem;
-}
-
-.is-layout {
-    background-color: rgba(0, 255, 0, 0.03);
-}
-
-.is-widget {
-    background-color: rgba(0, 0, 255, 0.03);
-}
-
-.is-command {
-    background-color: rgba(255, 0, 0, 0.03);
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    z-index: 100;
 }

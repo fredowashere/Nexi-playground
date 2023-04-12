@@ -1,13 +1,12 @@
-<div class="card shadow">
+<div
+    class="conf-shell"
+    [class.d-inline-block]="[ConfElType.Widget, ConfElType.Command].includes(confEl.type)"
+    [class.border--dashed]="[ConfElType.Layout].includes(confEl.type)"
+    [class.bg-white]="[ConfElType.Widget, ConfElType.Command].includes(confEl.type)"
+    [class.shadow]="[ConfElType.Widget, ConfElType.Command].includes(confEl.type)"
+>
 
-    <div
-        class="card-header conf-el__toolbar"
-        [class.is-layout]="confEl.type === ConfElType.Layout"
-        [class.is-widget]="confEl.type === ConfElType.Widget"
-        [class.is-command]="confEl.type === ConfElType.Command"
-    >
-
-        <div class="me-auto">{{ confEl.name }}</div>
+    <div class="conf-shell__tools">
 
         <div
             *ngIf="confEl.settingsDialog"
@@ -25,7 +24,5 @@
         </div>
     </div>
 
-    <div class="card-body p-2">
-        <ng-tempalte dcl></ng-tempalte>
-    </div>
+    <ng-tempalte dcl></ng-tempalte>
 </div>

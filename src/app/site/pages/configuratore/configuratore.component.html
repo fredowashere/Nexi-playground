@@ -79,18 +79,50 @@
         <div class="lifecycle-hooks" *ngIf="selectedPageLayout">
 
             <div class="hook-init">
+
                 <div class="text-center mb-3">
-                    <div class="btn btn-rnd btn-outline-primary shadow">
+                    <div
+                        class="btn btn-rnd btn-outline-primary shadow"
+                        (click)="addConfEl(confService.init)"
+                    >
                         <i class="bi bi-plus-lg"></i>
                     </div>
+                </div>
+
+                <div
+                    class="d-grid gap-2"
+                    cdkDropList
+                    (cdkDropListDropped)="drop($event, confService.init)"
+                >
+                    <app-conf-el-shell
+                        cdkDrag
+                        *ngFor="let confEl of confService.init"
+                        [confEl]="confEl"
+                    ></app-conf-el-shell>
                 </div>
             </div>
 
             <div class="hook-destroy">
+
                 <div class="text-center mb-3">
-                    <div class="btn btn-rnd btn-outline-primary shadow">
+                    <div
+                        class="btn btn-rnd btn-outline-primary shadow"
+                        (click)="addConfEl(confService.destroy)"
+                    >
                         <i class="bi bi-plus-lg"></i>
                     </div>
+                </div>
+
+                <div
+                    class="d-grid gap-2"
+                    cdkDropList
+                    (cdkDropListDropped)="drop($event, confService.destroy)"
+                >
+                    <app-conf-el-shell
+                        cdkDrag
+                        *ngFor="let confEl of confService.destroy"
+                        [confEl]="confEl"
+                    ></app-conf-el-shell>
                 </div>
             </div>
         </div>

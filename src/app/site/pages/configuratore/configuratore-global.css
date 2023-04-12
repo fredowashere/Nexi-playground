@@ -160,7 +160,7 @@
 }
 
 .pipeline {
-    border: 1px dashed rgba(var(--app-gray_300), 1);
+    border: 1px dashed rgba(var(--app-gray_400), 1);
     border-radius: 5px;
     min-height: 10vh;
     min-width: 375px;

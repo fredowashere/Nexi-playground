@@ -9,7 +9,6 @@
     display: grid;
     gap: var(--layout-cols-gap);
     position: relative;
-    z-index: 1000;
 }
 
 .layout-cols:not(:last-child) {

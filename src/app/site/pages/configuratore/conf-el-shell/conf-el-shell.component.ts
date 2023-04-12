@@ -1,6 +1,7 @@
 import { Component, Directive, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { ConfEl, ConfElType, ConfiguratoreService } from '../services/configuratore.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { WidgetType } from '../widgets/widget.util';
 
 @Directive({
   selector: '[dcl]',
@@ -20,6 +21,7 @@ export class ConfElShellComponent {
   @Input("confEl") confEl!: ConfEl;
 
   ConfElType = ConfElType;
+  WidgetType = WidgetType;
 
   constructor(
     private confService: ConfiguratoreService,
