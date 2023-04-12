@@ -1,5 +1,7 @@
 import { Component, Directive, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { ConfEl, ConfiguratoreService } from '../services/configuratore.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { LayoutSettingsDialogComponent } from '../layouts/layout-settings-dialog/layout-settings-dialog.component';
 
 @Directive({
   selector: '[dcl]',
@@ -19,7 +21,8 @@ export class ConfElShellComponent {
   @Input("confEl") confEl!: ConfEl;
 
   constructor(
-    private confService: ConfiguratoreService
+    private confService: ConfiguratoreService,
+    private modalService: NgbModal
   ) {
 
   }
@@ -31,6 +34,17 @@ export class ConfElShellComponent {
   loadComponent() {
     const componentRef = this.dcl.viewContainerRef.createComponent<any>(this.confEl.component);
     componentRef.instance.confEl = this.confEl;
+  }
+
+  async openConfSettings() {
+
+    const modalRef = this.modalService.open(
+      this.confEl.settingsDialog,
+      { centered: true }
+    );
+		modalRef.componentInstance.target = this.confEl;
+
+		const result = await modalRef.result;
   }
 
   removeConf() {

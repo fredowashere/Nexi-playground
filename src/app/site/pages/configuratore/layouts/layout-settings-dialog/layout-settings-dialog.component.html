@@ -1,7 +1,7 @@
 <div class="modal-header">
 
     <h4 class="modal-title" id="modal-title">
-        Eliminazione
+        Aggiungi configurazione
     </h4>
 
     <button
@@ -13,12 +13,11 @@
 
 <div class="modal-body">
 
-    <p><strong>Sei sicuro di volere eliminare l'elemento?</strong></p>
+    <div class="mb-3">
+        <label for="num-of-cols" class="form-label">Numero di colonne</label>
+        <input id="num-of-cols" type="number" class="form-control" [(ngModel)]="target.settings.numOfCols">
+    </div>
 
-    <p>
-        L'elemento sarà eliminato permanentemente.<br>
-        <span class="text-danger">Questa operazione non è reversibile.</span>
-    </p>
 </div>
 
 <div class="modal-footer">
@@ -33,7 +32,7 @@
 
     <button
         type="button"
-        class="btn btn-danger"
+        class="btn btn-primary"
         (click)="activeModal.close('Ok click')"
     >
         Ok

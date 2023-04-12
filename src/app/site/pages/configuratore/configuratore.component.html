@@ -74,8 +74,9 @@
         </ng-container>
     </div>
 
-    <div class="conf__main-footer" *ngIf="selectedPageLayout">
-        <div class="lifecycle-hooks">
+    <div class="conf__main-footer">
+
+        <div class="lifecycle-hooks" *ngIf="selectedPageLayout">
 
             <div class="hook-init">
                 <div class="text-center mb-3">
@@ -92,6 +93,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div
+            *ngIf="!selectedPageLayout"
+            class="d-grid"
+            style="place-items: center;"
+        >
+            <h5 class="text-muted">Click on a template to start</h5>
         </div>
     </div>
 

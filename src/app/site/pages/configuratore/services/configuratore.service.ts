@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RemoveConfElDialogComponent } from '../dialogs/remove-conf-el-dialog/remove-conf-el-dialog.component';
 
 export enum ConfElType {
   Layout = "layout",
@@ -10,8 +12,9 @@ export interface ConfEl {
   id: string;
   type: ConfElType;
   name: string;
-  component: any;
   settings: any;
+  settingsDialog?: any;
+  component: any;
   outlet1: ConfEl[];
   outlet2: ConfEl[];
   outlet3: ConfEl[];
@@ -29,13 +32,19 @@ export class ConfiguratoreService {
   sideRight: ConfEl[] = [];
   footer: ConfEl[] = [];
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal
+  ) { }
 
-  addConfEl(target: ConfEl[], confEl: ConfEl) {
-    target.push(confEl);
-  }
+  async removeConfEl(id: string) {
 
-  removeConfEl(id: string) {
+    const modalRef = this.modalService.open(
+      RemoveConfElDialogComponent,
+      { centered: true }
+    );
+
+		const result = await modalRef.result;
+
     const list = this.findList(id);
     const confIndex = this.findConfIndex(id, list);
     list.splice(confIndex, 1);

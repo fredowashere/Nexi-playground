@@ -19,13 +19,6 @@ import { LetDirective } from './directives/ng-let';
 import { MonthpickerComponent } from './components/monthpicker/monthpicker.component';
 import { CDK_DRAG_CONFIG, DragDropModule } from '@angular/cdk/drag-drop';
 
-
-const DragConfig = {
-  dragStartThreshold: 0,
-  pointerDirectionChangeThreshold: 5,
-  zIndex: 10000
-};
-
 @NgModule({
   declarations: [
     HackCasePipe,
@@ -70,7 +63,6 @@ const DragConfig = {
     LetDirective,
     MonthpickerComponent,
     DragDropModule
-  ],
-  providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }]
+  ]
 })
 export class SharedModule { }

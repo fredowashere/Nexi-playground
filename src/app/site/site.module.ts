@@ -15,6 +15,7 @@ import { ConfElShellComponent, DclDirective } from './pages/configuratore/conf-e
 import { LayoutComponent } from './pages/configuratore/layouts/layout/layout.component';
 import { AddConfElDialogComponent } from './pages/configuratore/dialogs/add-conf-el-dialog/add-conf-el-dialog.component';
 import { RemoveConfElDialogComponent } from './pages/configuratore/dialogs/remove-conf-el-dialog/remove-conf-el-dialog.component';
+import { LayoutSettingsDialogComponent } from './pages/configuratore/layouts/layout-settings-dialog/layout-settings-dialog.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     ConfElShellComponent,
     AddConfElDialogComponent,
     RemoveConfElDialogComponent,
+    LayoutSettingsDialogComponent
   ],
   imports: [
     CommonModule,

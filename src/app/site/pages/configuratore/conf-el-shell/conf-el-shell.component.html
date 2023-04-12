@@ -4,7 +4,10 @@
 
         <div class="me-auto">{{ confEl.name }}</div>
 
-        <div class="btn btn-sm btn-rnd btn-warning shadow">
+        <div
+            class="btn btn-sm btn-rnd btn-warning shadow"
+            (click)="openConfSettings()"
+        >
             <i class="bi bi-pen-fill"></i>
         </div>
 

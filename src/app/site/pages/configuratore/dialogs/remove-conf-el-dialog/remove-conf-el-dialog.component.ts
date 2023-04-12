@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-remove-conf-el-dialog',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class RemoveConfElDialogComponent {
 
+  constructor(
+    public activeModal: NgbActiveModal
+  ) {}
 }

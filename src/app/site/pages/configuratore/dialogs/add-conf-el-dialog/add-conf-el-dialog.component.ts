@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfEl, ConfElType } from '../../services/configuratore.service';
-import { createLayout } from '../../layouts/layout.util';
+import { LAYOUTS, createLayout } from '../../layouts/layout.util';
 
 @Component({
   selector: 'app-add-conf-el-dialog',
@@ -15,10 +15,7 @@ export class AddConfElDialogComponent {
 
   ConfElType = ConfElType;
 
-  oneColLayout = createLayout({ numOfCols: 1 });
-  twoColLayout = createLayout({ numOfCols: 2 });
-  threeColLayout = createLayout({ numOfCols: 3 });
-  fourColLayout = createLayout({ numOfCols: 4 });
+  LAYOUTS = LAYOUTS;
 
   constructor(
     public activeModal: NgbActiveModal

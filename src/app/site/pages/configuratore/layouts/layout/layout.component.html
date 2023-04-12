@@ -1,5 +1,5 @@
 <div
-    *ngIf="confEl.settings.numOfCols == 1"
+    *ngIf="confEl.settings.numOfCols < 2"
     class="layout-cols layout-cols--1"
 >
     <div class="d-grid gap-2">
@@ -168,7 +168,7 @@
 </div>
 
 <div
-    *ngIf="confEl.settings.numOfCols == 4"
+    *ngIf="confEl.settings.numOfCols > 3"
     cdkDropListGroup
     class="layout-cols layout-cols--4"
 >
