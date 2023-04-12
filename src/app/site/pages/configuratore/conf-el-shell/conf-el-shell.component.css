@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.bg-translucent {
+    background-color: rgba(255, 255, 255, 0.33);
+}
+
 .border--dashed {
     border-style: dashed;
 }

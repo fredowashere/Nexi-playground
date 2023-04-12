@@ -2,6 +2,7 @@
     class="conf-shell"
     [class.d-inline-block]="[ConfElType.Widget, ConfElType.Command].includes(confEl.type)"
     [class.border--dashed]="[ConfElType.Layout].includes(confEl.type)"
+    [class.bg-translucent]="[ConfElType.Layout].includes(confEl.type)"
     [class.bg-white]="[ConfElType.Widget, ConfElType.Command].includes(confEl.type)"
     [class.shadow]="[ConfElType.Widget, ConfElType.Command].includes(confEl.type)"
 >
