@@ -5,13 +5,13 @@
 }
 
 .is-layout {
-    background: #d2e9cf;
+    background-color: rgba(0, 255, 0, 0.03);
 }
 
 .is-widget {
-    background: #d5e0ea;
+    background-color: rgba(0, 0, 255, 0.03);
 }
 
 .is-command {
-    background: #ebd0d0;
+    background-color: rgba(255, 0, 0, 0.03);
 }
