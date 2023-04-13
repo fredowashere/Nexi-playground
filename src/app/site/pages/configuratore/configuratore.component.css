@@ -62,7 +62,7 @@
 }
 
 .conf__main-footer::before {
-    content: "Lifecycle hooks";
+    content: "Structure page commands";
 }
 
 .conf__side-right {

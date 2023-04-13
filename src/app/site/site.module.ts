@@ -27,6 +27,7 @@ import { ParagraphComponent } from './pages/configuratore/widgets/paragraph/para
 import { ParagraphSettingsDialogComponent } from './pages/configuratore/widgets/paragraph-settings-dialog/paragraph-settings-dialog.component';
 import { CommandWrapComponent } from './pages/configuratore/commands/command-wrap/command-wrap.component';
 import { CommandComponent } from './pages/configuratore/commands/command/command.component';
+import { CommandSettingsDialogComponent } from './pages/configuratore/commands/command-settings-dialog/command-settings-dialog.component';
 
 const routes: Routes = [
   {
@@ -66,8 +67,9 @@ const routes: Routes = [
     ParagraphComponent,
     ParagraphWrapComponent,
     ParagraphSettingsDialogComponent,
+    CommandComponent,
     CommandWrapComponent,
-    CommandComponent
+    CommandSettingsDialogComponent
   ],
   imports: [
     CommonModule,

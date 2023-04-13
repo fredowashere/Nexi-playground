@@ -1,7 +1,11 @@
 <div class="modal-header">
 
     <h4 class="modal-title" id="modal-title">
-        Aggiungi configurazione
+        {{ 
+            supportedConfigs.includes(ConfElType.Command)
+                ? 'Comandi disponibili'
+                : 'Elementi designer'
+        }}
     </h4>
 
     <button
@@ -13,186 +17,430 @@
 
 <div class="modal-body">
 
-    <ng-container *ngIf="supportedConfigs.includes(ConfElType.Layout)">
+    <ngb-accordion
+        *ngIf="
+            supportedConfigs.includes(ConfElType.Layout)
+            || supportedConfigs.includes(ConfElType.Widget)
+        "
+        activeIds="panel-1"
+        [closeOthers]="true"
+    >
 
-        <h3 class="mb-4">Layout</h3>
-    
-        <div class="d-grid gap-2">
-            <div
-                *ngFor="let l of LAYOUTS"
-                class="card shadow"
-                (click)="select(l)"
-            >
-                <div class="card-body p-2">
-                    <app-layout
-                        [confEl]="l"
-                        [isShowcase]="true"
-                    ></app-layout>
+        <ngb-panel
+            id="panel-1"
+            [disabled]="!supportedConfigs.includes(ConfElType.Layout)"
+        >
+
+            <ng-template ngbPanelTitle>
+                <span>Elementi di layout</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-grid gap-2">
+                        <div
+                            *ngFor="let l of LAYOUTS"
+                            class="card shadow"
+                            (click)="select(l)"
+                        >
+                            <div class="card-body p-2">
+                                <app-layout
+                                    [confEl]="l"
+                                    [isShowcase]="true"
+                                ></app-layout>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </ng-container>
+            </ng-template>
+        </ngb-panel>
 
-    <ng-container *ngIf="supportedConfigs.includes(ConfElType.Widget)">
+        <ngb-panel
+            id="panel-2"
+            [disabled]="!supportedConfigs.includes(ConfElType.Widget)"
+            [cardClass]="!supportedConfigs.includes(ConfElType.Widget) ? 'disabled' : ''"
+        >
 
-        <h3 class="my-4">Widgets</h3>
+            <ng-template ngbPanelTitle>
+                <span>Testuali</span>
+            </ng-template>
 
-        <h5 class="mb-3">Pulsante</h5>
+            <ng-template ngbPanelContent>
+                <div class="py-4">
     
-        <div class="d-grid justify-content-start gap-2">
-            <div
-                *ngFor="let w of BUTTONS"
-                class="card shadow"
-                (click)="select(w)"
-            >
-                <div class="card-body p-2">
-                    <app-button
-                        [confEl]="w"
-                        [isShowcase]="true"
-                    ></app-button>
+                    <div class="d-grid justify-content-start gap-2 mb-3">
+                        <div
+                            *ngFor="let w of HEADINGS"
+                            class="card shadow"
+                            (click)="select(w)"
+                        >
+                            <div class="card-body p-2">
+                                <app-heading
+                                    [confEl]="w"
+                                    [isShowcase]="true"
+                                ></app-heading>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="d-grid justify-content-start gap-2">
+                        <div
+                            *ngFor="let w of PARAGRAPHS"
+                            class="card shadow"
+                            (click)="select(w)"
+                        >
+                            <div class="card-body p-2">
+                                <app-paragraph
+                                    [confEl]="w"
+                                    [isShowcase]="true"
+                                ></app-paragraph>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </ng-template>
+        </ngb-panel>
 
-        <h5 class="my-3">Titolo</h5>
-    
-        <div class="d-grid justify-content-start gap-2">
-            <div
-                *ngFor="let w of HEADINGS"
-                class="card shadow"
-                (click)="select(w)"
-            >
-                <div class="card-body p-2">
-                    <app-heading
-                        [confEl]="w"
-                        [isShowcase]="true"
-                    ></app-heading>
-                </div>
-            </div>
-        </div>
+        <ngb-panel
+            [disabled]="!supportedConfigs.includes(ConfElType.Widget)"
+            [cardClass]="!supportedConfigs.includes(ConfElType.Widget) ? 'disabled' : ''"
+        >
 
-        <h5 class="my-3">Paragrafo</h5>
-    
-        <div class="d-grid justify-content-start gap-2">
-            <div
-                *ngFor="let w of PARAGRAPHS"
-                class="card shadow"
-                (click)="select(w)"
-            >
-                <div class="card-body p-2">
-                    <app-paragraph
-                        [confEl]="w"
-                        [isShowcase]="true"
-                    ></app-paragraph>
-                </div>
-            </div>
-        </div>
-    </ng-container>
+            <ng-template ngbPanelTitle>
+                <span>Pulsante</span>
+            </ng-template>
 
-    <ng-container *ngIf="supportedConfigs.includes(ConfElType.Command)">
+            <ng-template ngbPanelContent>
+                <div class="d-grid justify-content-start gap-2">
+                    <div
+                        *ngFor="let w of BUTTONS"
+                        class="card shadow"
+                        (click)="select(w)"
+                    >
+                        <div class="card-body p-2">
+                            <app-button
+                                [confEl]="w"
+                                [isShowcase]="true"
+                            ></app-button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
 
-        <h3 class="mb-4">Comandi</h3>
-    
-        <h5 class="mb-3">Session</h5>
-    
-        <div class="d-flex flex-wrap gap-2">
-            <div
-                *ngFor="let c of SESSIONS_COMMANDS"
-                class="card shadow"
-                (click)="select(c)"
-            >
-                <div class="card-body p-2">
-                    <app-command
-                        [confEl]="c"
-                        [isShowcase]="true"
-                    ></app-command>
-                </div>
-            </div>
-        </div>
-        
-        <h5 class="my-3">Journal</h5>
-    
-        <div class="d-flex flex-wrap gap-2">
-            <div
-                *ngFor="let c of JOURNAL_COMMANDS"
-                class="card shadow"
-                (click)="select(c)"
-            >
-                <div class="card-body p-2">
-                    <app-command
-                        [confEl]="c"
-                        [isShowcase]="true"
-                    ></app-command>
-                </div>
-            </div>
-        </div>
+        <ngb-panel
+            [disabled]="true"
+            cardClass="disabled"
+        >
 
-        <h5 class="my-3">Logger</h5>
-    
-        <div class="d-flex flex-wrap gap-2">
-            <div
-                *ngFor="let c of LOGGER_COMMANDS"
-                class="card shadow"
-                (click)="select(c)"
-            >
-                <div class="card-body p-2">
-                    <app-command
-                        [confEl]="c"
-                        [isShowcase]="true"
-                    ></app-command>
-                </div>
-            </div>
-        </div>
+            <ng-template ngbPanelTitle>
+                <span>Lista movimenti</span>
+            </ng-template>
 
-        <h5 class="my-3">RPC</h5>
-    
-        <div class="d-flex flex-wrap gap-2">
-            <div
-                *ngFor="let c of RPC_COMMANDS"
-                class="card shadow"
-                (click)="select(c)"
-            >
-                <div class="card-body p-2">
-                    <app-command
-                        [confEl]="c"
-                        [isShowcase]="true"
-                    ></app-command>
-                </div>
-            </div>
-        </div>
+            <ng-template ngbPanelContent></ng-template>
+        </ngb-panel>
 
-        <h5 class="my-3">Cash</h5>
-    
-        <div class="d-flex flex-wrap gap-2">
-            <div
-                *ngFor="let c of CASH_COMMANDS"
-                class="card shadow"
-                (click)="select(c)"
-            >
-                <div class="card-body p-2">
-                    <app-command
-                        [confEl]="c"
-                        [isShowcase]="true"
-                    ></app-command>
-                </div>
-            </div>
-        </div>
+        <ngb-panel
+            [disabled]="true"
+            cardClass="disabled"
+        >
 
-        <h5 class="my-3">API</h5>
-    
-        <div class="d-flex flex-wrap gap-2">
-            <div
-                *ngFor="let c of API_COMMANDS"
-                class="card shadow"
-                (click)="select(c)"
-            >
-                <div class="card-body p-2">
-                    <app-command
-                        [confEl]="c"
-                        [isShowcase]="true"
-                    ></app-command>
+            <ng-template ngbPanelTitle>
+                <span>Pin</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent></ng-template>
+        </ngb-panel>
+
+        <ngb-panel
+            [disabled]="true"
+            cardClass="disabled"
+        >
+
+            <ng-template ngbPanelTitle>
+                <span>Tastiera alfanumerica</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent></ng-template>
+        </ngb-panel>
+
+        <ngb-panel
+            [disabled]="true"
+            cardClass="disabled"
+        >
+
+            <ng-template ngbPanelTitle>
+                <span>Tastierino numerico</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent></ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+    <ngb-accordion
+        *ngIf="supportedConfigs.includes(ConfElType.Command)"
+        activeIds="panel-1"
+        [closeOthers]="true"
+    >
+
+        <ngb-panel id="panel-1">
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi API</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of API_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </ng-container>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Card Reader</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of CARD_READER_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Cash</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of CASH_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi EPP</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of EPP_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Journal</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of JOURNAL_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Keyboard</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of KEYBOARD_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Logger</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of LOGGER_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi RPC</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of RPC_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Session</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of SESSIONS_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel>
+
+            <ng-template ngbPanelTitle>
+                <span>Comandi Terminal</span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+                <div class="py-4">
+                    <div class="d-flex flex-wrap gap-2">
+                        <div
+                            *ngFor="let c of TERMINAL_COMMANDS"
+                            class="card shadow"
+                            (click)="select(c)"
+                        >
+                            <div class="card-body p-2">
+                                <app-command
+                                    [confEl]="c"
+                                    [isShowcase]="true"
+                                ></app-command>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
 </div>

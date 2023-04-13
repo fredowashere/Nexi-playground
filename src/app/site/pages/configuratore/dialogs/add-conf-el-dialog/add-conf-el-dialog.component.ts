@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfEl, ConfElType } from '../../services/configuratore.service';
 import { LAYOUTS, createLayout } from '../../layouts/layout.util';
 import { BUTTONS, HEADINGS, PARAGRAPHS, WIDGETS, WidgetType, createButton, createHeading, createParagraph } from '../../widgets/widget.util';
-import { API_COMMANDS, CASH_COMMANDS, CommandType, JOURNAL_COMMANDS, LOGGER_COMMANDS, RPC_COMMANDS, SESSIONS_COMMANDS, createAPICommand, createCashCommand, createJournalCommand, createLoggerCommand, createRPCCommand, createSessionCommand } from '../../commands/command.util';
+import { API_COMMANDS, CARD_READER_COMMANDS, CASH_COMMANDS, CommandType, EPP_COMMANDS, JOURNAL_COMMANDS, KEYBOARD_COMMANDS, LOGGER_COMMANDS, RPC_COMMANDS, SESSIONS_COMMANDS, TERMINAL_COMMANDS, createAPICommand, createCardReaderCommand, createCashCommand, createJournalCommand, createLoggerCommand, createRPCCommand, createSessionCommand } from '../../commands/command.util';
 
 @Component({
   selector: 'app-add-conf-el-dialog',
@@ -23,10 +23,14 @@ export class AddConfElDialogComponent {
   HEADINGS = HEADINGS;
   PARAGRAPHS = PARAGRAPHS;
 
+  CARD_READER_COMMANDS = CARD_READER_COMMANDS;
+  EPP_COMMANDS = EPP_COMMANDS;
   SESSIONS_COMMANDS = SESSIONS_COMMANDS;
   JOURNAL_COMMANDS = JOURNAL_COMMANDS;
+  KEYBOARD_COMMANDS = KEYBOARD_COMMANDS;
   LOGGER_COMMANDS = LOGGER_COMMANDS;
   RPC_COMMANDS = RPC_COMMANDS;
+  TERMINAL_COMMANDS = TERMINAL_COMMANDS;
   CASH_COMMANDS = CASH_COMMANDS;
   API_COMMANDS = API_COMMANDS;
 
@@ -58,6 +62,10 @@ export class AddConfElDialogComponent {
     }
 
     if (confEl.type === ConfElType.Command) {
+
+      if (confEl.name === CommandType.CardReader) {
+        elToAdd = createCardReaderCommand({ ...confEl.settings });
+      }
 
       if (confEl.name === CommandType.Session) {
         elToAdd = createSessionCommand({ ...confEl.settings });

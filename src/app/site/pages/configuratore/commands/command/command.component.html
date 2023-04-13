@@ -1,2 +1,19 @@
-<div class="text-primary">{{ confEl.settings.name }}</div>
-<small class="text-muted">{{ confEl.settings.catalogueId }}</small>
+<div [class.showcase]="isShowcase">
+
+    <div class="text-primary">{{ confEl.settings.name }}</div>
+
+    <div class="ms-2">
+        <span *ngIf="confEl.settings.exeMode" class="me-2 fw-bold">Modalità</span>
+        <small class="text-muted">{{ confEl.settings.exeMode }}</small>
+    </div>
+
+    <div class="ms-3">
+        <span *ngIf="confEl.settings.input" class="me-2 fw-bold">Input</span>
+        <small class="text-muted">{{ confEl.settings.input }}</small>
+    </div>
+
+    <div class="ms-3">
+        <span *ngIf="confEl.settings.goto" class="me-2 fw-bold">Goto</span>
+        <small class="text-muted">{{ confEl.settings.goto }}</small>
+    </div>
+</div>
