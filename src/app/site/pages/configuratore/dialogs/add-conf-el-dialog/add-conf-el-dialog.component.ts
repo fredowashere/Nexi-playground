@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfEl, ConfElType } from '../../services/configuratore.service';
 import { LAYOUTS, createLayout } from '../../layouts/layout.util';
 import { BUTTONS, HEADINGS, PARAGRAPHS, WIDGETS, WidgetType, createButton, createHeading, createParagraph } from '../../widgets/widget.util';
-import { API_COMMANDS, CARD_READER_COMMANDS, CASH_COMMANDS, CommandType, EPP_COMMANDS, JOURNAL_COMMANDS, KEYBOARD_COMMANDS, LOGGER_COMMANDS, RPC_COMMANDS, SESSIONS_COMMANDS, TERMINAL_COMMANDS, createAPICommand, createCardReaderCommand, createCashCommand, createJournalCommand, createLoggerCommand, createRPCCommand, createSessionCommand } from '../../commands/command.util';
+import { API_COMMANDS, CARD_READER_COMMANDS, CASH_COMMANDS, CommandType, EPP_COMMANDS, JOURNAL_COMMANDS, KEYBOARD_COMMANDS, LOGGER_COMMANDS, RPC_COMMANDS, SESSIONS_COMMANDS, TERMINAL_COMMANDS, createAPICommand, createCardReaderCommand, createCashCommand, createEPPCommand, createJournalCommand, createKeyboardCommand, createLoggerCommand, createRPCCommand, createSessionCommand, createTerminalCommand } from '../../commands/command.util';
 
 @Component({
   selector: 'app-add-conf-el-dialog',
@@ -63,16 +63,28 @@ export class AddConfElDialogComponent {
 
     if (confEl.type === ConfElType.Command) {
 
+      if (confEl.name === CommandType.API) {
+        elToAdd = createAPICommand({ ...confEl.settings });
+      }
+
       if (confEl.name === CommandType.CardReader) {
         elToAdd = createCardReaderCommand({ ...confEl.settings });
       }
 
-      if (confEl.name === CommandType.Session) {
-        elToAdd = createSessionCommand({ ...confEl.settings });
+      if (confEl.name === CommandType.Cash) {
+        elToAdd = createCashCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.EPP) {
+        elToAdd = createEPPCommand({ ...confEl.settings });
       }
 
       if (confEl.name === CommandType.Journal) {
         elToAdd = createJournalCommand({ ...confEl.settings });
+      }
+
+      if (confEl.name === CommandType.Keyboard) {
+        elToAdd = createKeyboardCommand({ ...confEl.settings });
       }
 
       if (confEl.name === CommandType.Logger) {
@@ -83,12 +95,12 @@ export class AddConfElDialogComponent {
         elToAdd = createRPCCommand({ ...confEl.settings });
       }
 
-      if (confEl.name === CommandType.Cash) {
-        elToAdd = createCashCommand({ ...confEl.settings });
+      if (confEl.name === CommandType.Session) {
+        elToAdd = createSessionCommand({ ...confEl.settings });
       }
 
-      if (confEl.name === CommandType.API) {
-        elToAdd = createAPICommand({ ...confEl.settings });
+      if (confEl.name === CommandType.Terminal) {
+        elToAdd = createTerminalCommand({ ...confEl.settings });
       }
     }
 

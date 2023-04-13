@@ -18,6 +18,9 @@ export enum CommandType {
 
 export const COMMANDS = [
 
+    createAPICommand({ name: "Log business TAS" }),
+    createAPICommand({ name: "BSM Service API" }),
+
     createCardReaderCommand({ name: "Chip status" }),
     createCardReaderCommand({ name: "Close session" }),
     createCardReaderCommand({ name: "Get application list" }),
@@ -31,6 +34,9 @@ export const COMMANDS = [
     createCardReaderCommand({ name: "Selected application" }),
     createCardReaderCommand({ name: "Set transaction type" }),
     createCardReaderCommand({ name: "Start new transaction" }),
+
+    createCashCommand({ name: "Cash deposit" }),
+    createCashCommand({ name: "Cash withdraw" }),
 
     createEPPCommand({ name: "Accept pin" }),
     createEPPCommand({ name: "Get secure data" }),
@@ -71,6 +77,7 @@ export const COMMANDS = [
     createSessionCommand({ name: "User timeout" }),
     createSessionCommand({ name: "Override session timeout" }),
     createSessionCommand({ name: "Override user timeout" }),
+    createSessionCommand({ name: "End user session" }),
 
     createTerminalCommand({ name: "Get device list" }),
     createTerminalCommand({ name: "Get language" }),
@@ -79,12 +86,6 @@ export const COMMANDS = [
     createTerminalCommand({ name: "Get terminal ID" }),
     createTerminalCommand({ name: "Get web interface version" }),
     createTerminalCommand({ name: "Get web software version" }),
-
-    createCashCommand({ name: "Cash deposit" }),
-    createCashCommand({ name: "Cash withdraw" }),
-
-    createAPICommand({ name: "Log business TAS" }),
-    createAPICommand({ name: "BSM Service API" }),
 ];
 
 export const CARD_READER_COMMANDS = COMMANDS.filter(c => c.name === CommandType.CardReader);
