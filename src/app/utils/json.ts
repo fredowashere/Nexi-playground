@@ -7,3 +7,7 @@ export function parseJwt(token: string) {
     const base64 = base64Url.replace('-', '+').replace('_', '/');
     return JSON.parse(atob(base64));
 }
+
+export function beautifyJson(obj: any, spaces = 2) {
+    return JSON.stringify(obj, null, spaces);
+}

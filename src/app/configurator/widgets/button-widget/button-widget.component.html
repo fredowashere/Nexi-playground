@@ -1,1 +1,137 @@
-{{ spec.model?.label }}
+<ng-template #content let-modal>
+
+	<div class="modal-header">
+		<h4 class="modal-title">Button Widget</h4>
+		<button class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+
+	<div class="modal-body">
+        <div class="flexgrid">
+
+            <app-input
+                name="label"
+                label="Label"
+                [ngControl]="form.controls.label"
+                [floatingLabel]="true"
+            />
+
+            <app-input
+                name="description"
+                label="Description"
+                [ngControl]="form.controls.description"
+                [floatingLabel]="true"
+            />
+
+            <app-input
+                name="eco_label"
+                label="Eco Label"
+                [ngControl]="form.controls.eco_label"
+                [floatingLabel]="true"
+            />
+
+            <app-input
+                name="image"
+                label="Image"
+                [ngControl]="form.controls.image"
+                [floatingLabel]="true"
+            />
+
+            <app-input
+                name="goto"
+                label="Goto"
+                [ngControl]="form.controls.goto"
+                [floatingLabel]="true"
+            />
+
+            <app-input
+                type="checkbox"
+                name="skip_operation_block"
+                label="Skip Operation Block"
+                [ngControl]="form.controls.skip_operation_block"
+            />
+
+            <app-input
+                type="checkbox"
+                name="check_pin_control"
+                label="Check Pin Control"
+                [ngControl]="form.controls.check_pin_control"
+            />
+
+            <app-input
+                type="checkbox"
+                name="isProduct"
+                label="Is It a Product?"
+                [ngControl]="isProductControl"
+            />
+
+            <div *ngIf="isProductControl.value" class="card card-body">
+                <div class="flexgrid">
+
+                    <app-input
+                        name="productId"
+                        label="Product Id"
+                        [ngControl]="form.controls.product.controls.id"
+                        [floatingLabel]="true"
+                    />
+    
+                    <app-input
+                        type="select"
+                        name="productType"
+                        label="Product Type"
+                        [options]="productTypes"
+                        [ngControl]="form.controls.product.controls.type"
+                        [floatingLabel]="true"
+                    />
+    
+                    <app-input
+                        type="tagger"
+                        name="productOptionalDevices"
+                        label="Product Optional Devices"
+                        [freeTag]="true"
+                        [ngControl]="form.controls.product.controls.optionalDevices"
+                        [floatingLabel]="true"
+                    />
+                </div>
+            </div>
+        </div>
+	</div>
+
+	<div class="modal-footer">
+
+        <button
+            class="btn btn-outline-dark"
+            (click)="logInternalModel()"
+        >
+            Log Internal Model
+        </button>
+
+		<button
+            class="btn btn-outline-dark"
+            (click)="save(modal)"
+        >
+            Save
+        </button>
+	</div>
+</ng-template>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+
+    <div class="fs-5">{{ spec.class }}</div>
+
+    <button
+        class="btn btn-sm btn-outline-primary"
+        (click)="open(content)"
+    >
+        <i class="bi bi-gear"></i>
+    </button>
+</div>
+
+<div>{{ spec.model?.label }}</div>
+<!-- <a href="javascript:void(0)" (click)="showJson = !showJson">Show Json</a> -->
+<div #collapse="ngbCollapse" [(ngbCollapse)]="!showJson">
+    <div class="p-3">
+        <small>
+            <pre>{{ beautifyJson(spec.model) }}</pre>
+        </small>
+    </div>
+</div>

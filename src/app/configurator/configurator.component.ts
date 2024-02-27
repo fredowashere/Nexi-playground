@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
-import { WidgetModel, WidgetSpec } from './widgets/widget.models';
+import { WidgetModel, WidgetSpec } from './models/widget.models';
 
 @Component({
   selector: 'app-configurator',

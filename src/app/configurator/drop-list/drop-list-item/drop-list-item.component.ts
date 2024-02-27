@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { WidgetModel, WidgetSpec } from "../../widgets/widget.models";
+import { WidgetModel, WidgetSpec } from "../../models/widget.models";
 
 @Component({
     selector: "app-drop-list-item",

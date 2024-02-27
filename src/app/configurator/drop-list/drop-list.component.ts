@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { WidgetModel, WidgetSpec } from "../widgets/widget.models";
+import { WidgetModel, WidgetSpec } from "../models/widget.models";
 import { CdkDragDrop } from "@angular/cdk/drag-drop";
 
 @Component({

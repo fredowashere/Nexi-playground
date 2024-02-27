@@ -1,4 +1,4 @@
-import { ButtonWidgetModel } from "./button-widget/button-widget.models";
+import { ButtonWidgetModel } from "./widgets/button-widget.models";
 
 export enum PRODUCT_TYPE {
     PAY = "payment",
