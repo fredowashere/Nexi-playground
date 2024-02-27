@@ -12,7 +12,7 @@
             [cdkDropListConnectedTo]="[ headerDropList, contentDropList, footerDropList, rightSideDropList ]"
             (cdkDropListDropped)="drop($event)"
         >
-            <h1 *ngFor="let item of leftSide" cdkDrag>{{ item }}</h1>
+            <span class="drop-list-item" *ngFor="let item of leftSide" cdkDrag>{{ item }}</span>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
                     [cdkDropListConnectedTo]="[ leftSideDropList, contentDropList, footerDropList, rightSideDropList ]"
                     (cdkDropListDropped)="drop($event)"
                 >
-                    <h1 *ngFor="let item of header" cdkDrag>{{ item }}</h1>
+                    <span class="drop-list-item" *ngFor="let item of header" cdkDrag>{{ item }}</span>
                 </div>
             </div>
     
@@ -50,7 +50,7 @@
                     [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, footerDropList, rightSideDropList ]"
                     (cdkDropListDropped)="drop($event)"
                 >
-                    <h1 *ngFor="let item of content" cdkDrag>{{ item }}</h1>
+                    <span class="drop-list-item" *ngFor="let item of content" cdkDrag>{{ item }}</span>
                 </div>
             </div>
     
@@ -66,7 +66,7 @@
                     [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, contentDropList, rightSideDropList ]"
                     (cdkDropListDropped)="drop($event)"
                 >
-                    <h1 *ngFor="let item of footer" cdkDrag>{{ item }}</h1>
+                    <span class="drop-list-item" *ngFor="let item of footer" cdkDrag>{{ item }}</span>
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
             [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, contentDropList, footerDropList ]"
             (cdkDropListDropped)="drop($event)"
         >
-            <h1 *ngFor="let item of rightSide" cdkDrag>{{ item }}</h1>
+            <span class="drop-list-item" *ngFor="let item of rightSide" cdkDrag>{{ item }}</span>
         </div>
     </div>
 </div>
