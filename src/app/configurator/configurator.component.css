@@ -1,0 +1,41 @@
+.holy-grail-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr 360px;
+  grid-template-areas: "left-side main right-side";
+  gap: 0.5rem;
+  min-height: 100vh;
+}
+
+.holy-grail-layout > * {
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid;
+  border-radius: 1rem;
+}
+
+.left-side {
+  grid-area: left-side;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+}
+
+.right-side {
+  grid-area: right-side;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-rows: 200px 1fr 200px;
+}
+
+.main-grid > * {
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid;
+  border-radius: 1rem;
+}

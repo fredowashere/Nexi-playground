@@ -1,7 +1,0 @@
-:host ::ng-deep .layout-cols > * {
-    min-height: 2.25rem;
-}
-
-:host ::ng-deep .accordion-item.disabled {
-    opacity: 0.5;
-}

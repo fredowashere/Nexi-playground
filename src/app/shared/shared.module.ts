@@ -14,10 +14,15 @@ import { SearchRouterComponent } from './components/search-router/search-router.
 import { TextMaskModule } from './directives/text2mask';
 import { TableComponent } from './components/table/table.component';
 import { AppSortableHeader } from './directives/sortable-header';
-import { RbacAllowDirective } from './directives/role-based-access-allow';
 import { LetDirective } from './directives/ng-let';
 import { MonthpickerComponent } from './components/monthpicker/monthpicker.component';
-import { CDK_DRAG_CONFIG, DragDropModule } from '@angular/cdk/drag-drop';
+import { LinearLoadingIndicator } from './components/linear-loading-indicator.component';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { AppChartComponent } from './components/chart.component';
+import { ImageUploaderPreviewComponent } from './components/image-uploader-preview/image-uploader-preview.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,9 @@ import { CDK_DRAG_CONFIG, DragDropModule } from '@angular/cdk/drag-drop';
     SearchRouterComponent,
     TableComponent,
     LetDirective,
-    MonthpickerComponent
+    MonthpickerComponent,
+    AppChartComponent,
+    ImageUploaderPreviewComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +48,10 @@ import { CDK_DRAG_CONFIG, DragDropModule } from '@angular/cdk/drag-drop';
     NgbModule,
     TextMaskModule,
     AppSortableHeader,
-    RbacAllowDirective
+    LinearLoadingIndicator,
+    CdkDropList,
+    CdkDrag,
+    ScrollingModule
   ],
   exports: [
     HttpClientModule,
@@ -59,10 +69,14 @@ import { CDK_DRAG_CONFIG, DragDropModule } from '@angular/cdk/drag-drop';
     TextMaskModule,
     TableComponent,
     AppSortableHeader,
-    RbacAllowDirective,
     LetDirective,
     MonthpickerComponent,
-    DragDropModule
+    LinearLoadingIndicator,
+    CdkDropList,
+    CdkDrag,
+    ScrollingModule,
+    AppChartComponent,
+    ImageUploaderPreviewComponent
   ]
 })
 export class SharedModule { }

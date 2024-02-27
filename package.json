@@ -1,5 +1,5 @@
 {
-  "name": "Nexi-playground",
+  "name": "multi-layout",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "gh-pages": "ng build --output-path docs --base-href /Nexi-playground/"
+    "gh-pages": "ng build --output-path docs --base-href /multilayout-webapp/"
   },
   "private": true,
   "dependencies": {
@@ -22,11 +22,13 @@
     "@angular/router": "^15.2.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
     "@popperjs/core": "^2.11.6",
-    "@shopify/draggable": "^1.0.0-beta.12",
+    "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
+    "chartist": "^1.3.0",
     "date-fns": "^2.29.3",
     "highlight.js": "^11.7.0",
+    "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "raw-loader": "^4.0.2",
     "rxjs": "~7.8.0",
@@ -38,7 +40,9 @@
     "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "^15.2.0",
     "@angular/localize": "^15.2.0",
+    "@types/chartist": "^1.0.0",
     "@types/jasmine": "~4.3.0",
+    "@types/lodash": "^4.14.197",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
