@@ -1,5 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
+import { WidgetModel, WidgetSpec } from './widgets/widget.models';
 
 @Component({
   selector: 'app-configurator',
@@ -8,14 +9,52 @@ import { Component } from '@angular/core';
 })
 export class ConfiguratorComponent {
 
-  leftSide = [ "-1", "0" ]
-  header = [ "1", "2" ];
-  content = [ "3" ];
-  footer = [ "4" ];
-  rightSide = [ "5", "6" ];
+  leftSide: WidgetSpec<WidgetModel>[] = [
+    {
+      "id": "lang-indicator",
+      "class": "eu.sia.atm.Button",
+      "parent_id": "footer",
+      "model": {
+        "label": "Lingua",
+        "goto": "langs",
+        "image": "resources/language.svg"
+      },
+      "html_attributes": {
+        "class": "only-text lang-indicator"
+      },
+      "events": [
+        {
+          "trigger": "ENGINE:widgetsLoaded",
+          "attributes": { "disabled": "", "data-valid": true }
+        }
+      ]
+    },
+    {
+      "id": "lang-indicator",
+      "class": "eu.sia.atm.Button",
+      "parent_id": "footer",
+      "model": {
+        "label": "Prova",
+        "goto": "langs",
+        "image": "resources/language.svg"
+      },
+      "html_attributes": {
+        "class": "only-text lang-indicator"
+      },
+      "events": [
+        {
+          "trigger": "ENGINE:widgetsLoaded",
+          "attributes": { "disabled": "", "data-valid": true }
+        }
+      ]
+    }
+  ]
+  header: WidgetSpec<WidgetModel>[] = [];
+  content: WidgetSpec<WidgetModel>[] = [];
+  footer: WidgetSpec<WidgetModel>[] = [];
+  rightSide: WidgetSpec<WidgetModel>[] = [];
 
   drop(event: CdkDragDrop<any[]>) {
-    console.log(event.previousContainer === event.container);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,

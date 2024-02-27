@@ -4,16 +4,17 @@
 
         <h5>Left Side</h5>
 
-        <div
-            class="drop-list"
-            cdkDropList
-            #leftSideDropList="cdkDropList"
-            [cdkDropListData]="leftSide"
-            [cdkDropListConnectedTo]="[ headerDropList, contentDropList, footerDropList, rightSideDropList ]"
-            (cdkDropListDropped)="drop($event)"
-        >
-            <span class="drop-list-item" *ngFor="let item of leftSide" cdkDrag>{{ item }}</span>
-        </div>
+        <app-drop-list
+            dropListId="left-side-drop-list"
+            [dropList]="leftSide"
+            [connectedDropListIds]="[
+                'header-drop-list',
+                'content-drop-list',
+                'footer-drop-list',
+                'right-side-drop-list'
+            ]"
+            (drop)="drop($event)"
+        />
     </div>
 
     <div class="main">
@@ -26,48 +27,51 @@
 
                 <h5>Header</h5>
 
-                <div
-                    class="drop-list"
-                    cdkDropList
-                    #headerDropList="cdkDropList"
-                    [cdkDropListData]="header"
-                    [cdkDropListConnectedTo]="[ leftSideDropList, contentDropList, footerDropList, rightSideDropList ]"
-                    (cdkDropListDropped)="drop($event)"
-                >
-                    <span class="drop-list-item" *ngFor="let item of header" cdkDrag>{{ item }}</span>
-                </div>
+                <app-drop-list
+                    dropListId="header-drop-list"
+                    [dropList]="header"
+                    [connectedDropListIds]="[
+                        'left-side-drop-list',
+                        'content-drop-list',
+                        'footer-drop-list',
+                        'right-side-drop-list'
+                    ]"
+                    (drop)="drop($event)"
+                />
             </div>
     
             <div class="content">
 
                 <h5>Content</h5>
 
-                <div
-                    class="drop-list"
-                    cdkDropList
-                    #contentDropList="cdkDropList"
-                    [cdkDropListData]="content"
-                    [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, footerDropList, rightSideDropList ]"
-                    (cdkDropListDropped)="drop($event)"
-                >
-                    <span class="drop-list-item" *ngFor="let item of content" cdkDrag>{{ item }}</span>
-                </div>
+                <app-drop-list
+                    dropListId="content-drop-list"
+                    [dropList]="content"
+                    [connectedDropListIds]="[
+                        'left-side-drop-list',
+                        'header-drop-list',
+                        'footer-drop-list',
+                        'right-side-drop-list'
+                    ]"
+                    (drop)="drop($event)"
+                />
             </div>
     
             <div class="footer">
 
                 <h5>Footer</h5>
 
-                <div
-                    class="drop-list"
-                    cdkDropList
-                    #footerDropList="cdkDropList"
-                    [cdkDropListData]="footer"
-                    [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, contentDropList, rightSideDropList ]"
-                    (cdkDropListDropped)="drop($event)"
-                >
-                    <span class="drop-list-item" *ngFor="let item of footer" cdkDrag>{{ item }}</span>
-                </div>
+                <app-drop-list
+                    dropListId="footer-drop-list"
+                    [dropList]="footer"
+                    [connectedDropListIds]="[
+                        'left-side-drop-list',
+                        'header-drop-list',
+                        'content-drop-list',
+                        'right-side-drop-list'
+                    ]"
+                    (drop)="drop($event)"
+                />
             </div>
         </div>
     </div>
@@ -76,16 +80,17 @@
 
         <h5>Right Side</h5>
 
-        <div
-            class="drop-list"
-            cdkDropList
-            #rightSideDropList="cdkDropList"
-            [cdkDropListData]="rightSide"
-            [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, contentDropList, footerDropList ]"
-            (cdkDropListDropped)="drop($event)"
-        >
-            <span class="drop-list-item" *ngFor="let item of rightSide" cdkDrag>{{ item }}</span>
-        </div>
+        <app-drop-list
+            dropListId="right-side-drop-list"
+            [dropList]="rightSide"
+            [connectedDropListIds]="[
+                'left-side-drop-list',
+                'header-drop-list',
+                'content-drop-list',
+                'footer-drop-list'
+            ]"
+            (drop)="drop($event)"
+        />
     </div>
 </div>
 
