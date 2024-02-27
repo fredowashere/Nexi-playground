@@ -51,7 +51,13 @@ export class ButtonWidgetComponent {
     }
 
     async open(content: TemplateRef<any>) {
-        await this.modalService.open(content, { centered: true });
+        await this.modalService.open(
+            content,
+            { 
+                centered: true,
+                scrollable: true
+            }
+        );
 	}
 
     save(modal: NgbActiveModal) {
