@@ -30,7 +30,7 @@
 
 .main-grid {
   display: grid;
-  grid-template-rows: 200px 1fr 200px;
+  grid-template-rows: minmax(200px, auto) minmax(200px, 1fr) minmax(200px, auto);
 }
 
 .main-grid > * {
@@ -38,4 +38,8 @@
   margin: 0.5rem;
   border: 1px solid;
   border-radius: 1rem;
+}
+
+.drop-list {
+  min-height: 60px;
 }

@@ -1,7 +1,19 @@
 <div class="holy-grail-layout">
 
     <div class="left-side">
+
         <h5>Left Side</h5>
+
+        <div
+            class="drop-list"
+            cdkDropList
+            #leftSideDropList="cdkDropList"
+            [cdkDropListData]="leftSide"
+            [cdkDropListConnectedTo]="[ headerDropList, contentDropList, footerDropList, rightSideDropList ]"
+            (cdkDropListDropped)="drop($event)"
+        >
+            <h1 *ngFor="let item of leftSide" cdkDrag>{{ item }}</h1>
+        </div>
     </div>
 
     <div class="main">
@@ -11,21 +23,69 @@
         <div class="main-grid">
 
             <div class="header">
+
                 <h5>Header</h5>
+
+                <div
+                    class="drop-list"
+                    cdkDropList
+                    #headerDropList="cdkDropList"
+                    [cdkDropListData]="header"
+                    [cdkDropListConnectedTo]="[ leftSideDropList, contentDropList, footerDropList, rightSideDropList ]"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    <h1 *ngFor="let item of header" cdkDrag>{{ item }}</h1>
+                </div>
             </div>
     
             <div class="content">
+
                 <h5>Content</h5>
+
+                <div
+                    class="drop-list"
+                    cdkDropList
+                    #contentDropList="cdkDropList"
+                    [cdkDropListData]="content"
+                    [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, footerDropList, rightSideDropList ]"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    <h1 *ngFor="let item of content" cdkDrag>{{ item }}</h1>
+                </div>
             </div>
     
             <div class="footer">
+
                 <h5>Footer</h5>
+
+                <div
+                    class="drop-list"
+                    cdkDropList
+                    #footerDropList="cdkDropList"
+                    [cdkDropListData]="footer"
+                    [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, contentDropList, rightSideDropList ]"
+                    (cdkDropListDropped)="drop($event)"
+                >
+                    <h1 *ngFor="let item of footer" cdkDrag>{{ item }}</h1>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="right-side">
+
         <h5>Right Side</h5>
+
+        <div
+            class="drop-list"
+            cdkDropList
+            #rightSideDropList="cdkDropList"
+            [cdkDropListData]="rightSide"
+            [cdkDropListConnectedTo]="[ leftSideDropList, headerDropList, contentDropList, footerDropList ]"
+            (cdkDropListDropped)="drop($event)"
+        >
+            <h1 *ngFor="let item of rightSide" cdkDrag>{{ item }}</h1>
+        </div>
     </div>
 </div>
 
