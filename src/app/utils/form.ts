@@ -1,5 +1,5 @@
-import { FormControl } from "@angular/forms";
+import { FormControl, ValidatorFn } from "@angular/forms";
 
-export function nonNullableFormControl<T>(defVal: T) {
-    return new FormControl<T>(defVal, { nonNullable: true });
+export function nonNullableFormControl<T>(defVal: T, validators?: ValidatorFn | ValidatorFn[]) {
+    return new FormControl<T>(defVal, { nonNullable: true, validators });
 }

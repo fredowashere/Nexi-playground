@@ -1,0 +1,116 @@
+<div class="modal-header">
+    <h4 class="modal-title">Button Widget</h4>
+    <button class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+
+<div class="modal-body">
+    <div class="flexgrid">
+
+        <app-input
+            name="label"
+            label="Label"
+            helper="The main text of the button."
+            [ngControl]="form.controls.label"
+            [floatingLabel]="true"
+        />
+
+        <app-input
+            name="description"
+            label="Description"
+            helper="Secondary text."
+            [ngControl]="form.controls.description"
+            [floatingLabel]="true"
+        />
+
+        <app-input
+            name="eco_label"
+            label="Eco Label"
+            helper="If present, will append a special icon and text to the left of the button."
+            [ngControl]="form.controls.eco_label"
+            [floatingLabel]="true"
+        />
+
+        <app-input
+            name="image"
+            label="Image"
+            helper="You can add icons to 'only-text' buttons this way."
+            [ngControl]="form.controls.image"
+            [floatingLabel]="true"
+        />
+
+        <app-input
+            name="goto"
+            label="Goto"
+            helper="If present, calls the changeScreen method from the Engine. Ignored if `product` is present."
+            [ngControl]="form.controls.goto"
+            [floatingLabel]="true"
+        />
+
+        <app-input
+            type="checkbox"
+            name="skip_operation_block"
+            label="Skip Operation Block"
+            helper="If true doesn't lock operations after clicking on the button (which is the default behaviour)."
+            [ngControl]="form.controls.skip_operation_block"
+        />
+
+        <app-input
+            type="checkbox"
+            name="check_pin_control"
+            label="Check Pin Control"
+            helper="If false, allows to bypass the pin-check for a goto."
+            [ngControl]="form.controls.check_pin_control"
+        />
+
+        <app-input
+            type="checkbox"
+            name="isProduct"
+            label="Is It a Product?"
+            [ngControl]="isProductControl"
+        />
+
+        <div *ngIf="isProductControl.value" class="card card-body">
+
+            <div class="flexgrid">
+
+                <app-input
+                    name="productId"
+                    label="Product Id"
+                    [ngControl]="form.controls.product.controls.id"
+                    [floatingLabel]="true"
+                />
+
+                <app-input
+                    type="select"
+                    name="productType"
+                    label="Product Type"
+                    [options]="productTypes"
+                    [ngControl]="form.controls.product.controls.type"
+                    [floatingLabel]="true"
+                />
+
+                <app-input
+                    type="tagger"
+                    name="productOptionalDevices"
+                    label="Product Optional Devices"
+                    [freeTag]="true"
+                    [ngControl]="form.controls.product.controls.optionalDevices"
+                    [floatingLabel]="true"
+                />
+            </div>
+
+            <div class="alert alert-secondary">
+                Calls the `ENGINE:changePid` command. Always needs a PinInputWidget to function correctly.<br>Takes precedence over the `goto` field.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button
+        class="btn btn-primary"
+        (click)="save()"
+    >
+        Save
+    </button>
+</div>

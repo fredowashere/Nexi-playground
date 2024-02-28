@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { WidgetModel, WidgetSpec } from './models/widget.models';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-configurator',
@@ -9,11 +10,15 @@ import { WidgetModel, WidgetSpec } from './models/widget.models';
 })
 export class ConfiguratorComponent {
 
-  leftSide: WidgetSpec<WidgetModel>[] = [
+  public invert: boolean = true;
+  public onDragDrop$ = new Subject<CdkDragDrop<any[]>>();
+
+  leftSide: WidgetSpec<WidgetModel>[] = [];
+  header: WidgetSpec<WidgetModel>[] = [
     {
       "id": "lang-indicator",
       "class": "eu.sia.atm.Button",
-      "parent_id": "footer",
+      "parent_id": "header",
       "model": {
         "label": "Lingua",
         "goto": "langs",
@@ -28,9 +33,12 @@ export class ConfiguratorComponent {
           "attributes": { "disabled": "", "data-valid": true }
         }
       ]
-    },
+    }
+  ];
+  content: WidgetSpec<WidgetModel>[] = [];
+  footer: WidgetSpec<WidgetModel>[] = [
     {
-      "id": "lang-indicator",
+      "id": "test",
       "class": "eu.sia.atm.Button",
       "parent_id": "footer",
       "model": {
@@ -48,14 +56,15 @@ export class ConfiguratorComponent {
         }
       ]
     }
-  ]
-  header: WidgetSpec<WidgetModel>[] = [];
-  content: WidgetSpec<WidgetModel>[] = [];
-  footer: WidgetSpec<WidgetModel>[] = [];
+  ];
   rightSide: WidgetSpec<WidgetModel>[] = [];
 
-  drop(event: CdkDragDrop<any[]>) {
-    if (event.previousContainer === event.container) {
+  ngOnInit() {
+    this.onDragDrop$.subscribe(this.onDragDrop);
+  }
+
+  onDragDrop(event: CdkDragDrop<any[]>) {
+    if (event.container === event.previousContainer) {
       moveItemInArray(
         event.container.data,
         event.previousIndex,
@@ -66,9 +75,9 @@ export class ConfiguratorComponent {
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
     }
-  }
+  };
 
 }

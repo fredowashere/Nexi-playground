@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonWidgetModel } from '../../models/widgets/button-widget.models';
-import { WidgetSpec } from '../../models/widget.models';
+import { ButtonWidgetModel } from '../models/widgets/button-widget.models';
+import { WidgetSpec } from '../models/widget.models';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { beautifyJson } from 'src/app/utils/json';
-import { ButtonWidgetDialogComponent } from './button-widget-dialog/button-widget-dialog.component';
+import { PipelineCommandDialogComponent } from './pipeline-command-dialog/pipeline-command-dialog.component';
 
 @Component({
-  selector: 'app-button-widget',
-  templateUrl: './button-widget.component.html',
-  styleUrls: ['./button-widget.component.css']
+  selector: 'app-pipeline-command',
+  templateUrl: './pipeline-command.component.html',
+  styleUrls: ['./pipeline-command.component.css']
 })
-export class ButtonWidgetComponent {
+export class PipelineCommandComponent {
 
     beautifyJson = beautifyJson;
 
@@ -27,7 +27,7 @@ export class ButtonWidgetComponent {
 
     async open() {
         const modalRef = this.modalService.open(
-            ButtonWidgetDialogComponent,
+            PipelineCommandDialogComponent,
             { 
                 centered: true,
                 scrollable: true

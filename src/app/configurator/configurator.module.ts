@@ -4,8 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ConfiguratorComponent } from './configurator.component';
 import { ButtonWidgetComponent } from './widgets/button-widget/button-widget.component';
-import { DropListComponent } from './drop-list/drop-list.component';
-import { DropListItemComponent } from './drop-list/drop-list-item/drop-list-item.component';
+import { ButtonWidgetDialogComponent } from './widgets/button-widget/button-widget-dialog/button-widget-dialog.component';
+import { PipelineCommandComponent } from './pipeline-command/pipeline-command.component';
+import { PipelineCommandDialogComponent } from './pipeline-command/pipeline-command-dialog/pipeline-command-dialog.component';
+import { DragAndDropManagerDirective } from './drag-and-drop/drag-and-drop.directive';
+import { BaseWidgetComponent } from './widgets/base-widget/base-widget.component';
+import { ItemComponent } from './drag-and-drop/item.component';
 
 const routes: Routes = [
   { path: '', component: ConfiguratorComponent },
@@ -13,10 +17,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    ItemComponent,
+    DragAndDropManagerDirective,
     ConfiguratorComponent,
-    DropListComponent,
-    DropListItemComponent,
-    ButtonWidgetComponent
+    PipelineCommandComponent,
+    PipelineCommandDialogComponent,
+    BaseWidgetComponent,
+    ButtonWidgetComponent,
+    ButtonWidgetDialogComponent,
   ],
   imports: [
     CommonModule,
