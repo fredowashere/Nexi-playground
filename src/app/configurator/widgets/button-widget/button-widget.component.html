@@ -11,18 +11,36 @@
 
     <button
         class="btn btn-sm btn-outline-danger"
-        (click)="delete()"
     >
         <i class="bi bi-trash"></i>
     </button>
 </div>
 
 <div>{{ spec.model?.label }}</div>
+
 <a href="javascript:void(0)" (click)="showJson = !showJson">Show Json</a>
 <div #collapse="ngbCollapse" [(ngbCollapse)]="!showJson">
     <div class="p-3">
         <small>
-            <pre>{{ beautifyJson(spec.model) }}</pre>
+            <pre>{{ beautifyJson(spec) }}</pre>
         </small>
+    </div>
+</div>
+
+<div
+    *ngIf="spec.events"
+    class="alert alert-warning drop-list"
+    cdkDropList
+    [id]="spec.id + '-events'"
+    [dragAndDropManager]="'events'"
+    [cdkDropListData]="spec.events"
+    (cdkDropListDropped)="onDragDrop$.next($event)"
+>
+    <div
+        cdkDrag
+        class="drop-list-item bg-white"
+        *ngFor="let event of spec.events"
+    >
+        {{ event.trigger }}
     </div>
 </div>

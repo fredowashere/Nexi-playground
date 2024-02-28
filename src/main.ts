@@ -9,4 +9,4 @@ import { installPatch } from './app/configurator/drag-and-drop/monkye-patch';
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
-installPatch();
+// installPatch(); // ToDo: Should I completely remove this?

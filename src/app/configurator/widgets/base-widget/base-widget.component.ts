@@ -10,5 +10,5 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 })
 export class BaseWidgetComponent {
     @Input("spec") spec!: WidgetSpec<WidgetModel>;
-    @Input('onDragDrop') public onDragDrop$!: Subject<CdkDragDrop<any[]>>;
+    @Input("onDragDrop") onDragDrop$!: Subject<CdkDragDrop<any[]>>;
 }

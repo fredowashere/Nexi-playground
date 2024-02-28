@@ -9,7 +9,6 @@ import { PipelineCommandComponent } from './pipeline-command/pipeline-command.co
 import { PipelineCommandDialogComponent } from './pipeline-command/pipeline-command-dialog/pipeline-command-dialog.component';
 import { DragAndDropManagerDirective } from './drag-and-drop/drag-and-drop.directive';
 import { BaseWidgetComponent } from './widgets/base-widget/base-widget.component';
-import { ItemComponent } from './drag-and-drop/item.component';
 
 const routes: Routes = [
   { path: '', component: ConfiguratorComponent },
@@ -17,7 +16,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ItemComponent,
     DragAndDropManagerDirective,
     ConfiguratorComponent,
     PipelineCommandComponent,
