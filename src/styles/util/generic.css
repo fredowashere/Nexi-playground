@@ -1,23 +1,14 @@
 .drop-list {
-    border: solid 1px #ccc;
-    min-height: 60px;
+    border: solid 1px;
+    min-height: 64px;
     border-radius: 4px;
     overflow: hidden;
-    display: block;
-}
-
-.drop-list-item {
-    padding: 1rem;
-    border: solid 1px #ccc;
-    cursor: move;
-}
-
-.drop-list-item:not(:last-child) {
-    border-bottom: none;
+    display: grid;
+    gap: 0.25rem;
+    padding: 0.25rem;
 }
 
 .cdk-drag-preview {
-    box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 0 10px 5px #0002;
 }

@@ -3,7 +3,7 @@
     <div class="fs-5 me-auto">{{ spec.class }}</div>
 
     <button
-        class="btn btn-sm btn-outline-primary me-2"
+        class="btn btn-sm btn-outline-primary me-1"
         (click)="open()"
     >
         <i class="bi bi-gear"></i>
@@ -38,7 +38,7 @@
 >
     <div
         cdkDrag
-        class="drop-list-item bg-white"
+        class="card card-body"
         *ngFor="let event of spec.events"
     >
         {{ event.trigger }}
