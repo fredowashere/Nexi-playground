@@ -3,7 +3,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import { installPatch } from './app/configurator/drag-and-drop/monkye-patch';
+import { installPatch } from './app/configurator/drag-and-drop/monkey-patch';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)
